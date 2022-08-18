@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import './Dashboard.css'
 
 
@@ -67,6 +68,7 @@ export default function Dashboard() {
                 </div>
                 <div id='dashboard-cards'>
                     <CardList cards={user[0].activities} noRemove={onRemove} />
+                    <Link to='/myActivities'>see more ...</Link>
                 </div>
             </div>
         </div>

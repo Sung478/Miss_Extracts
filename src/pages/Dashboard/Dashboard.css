@@ -13,10 +13,16 @@
     /* min-height: 400px; */
 }
 
+#dashboard-goal {
+    margin-left: 28px;
+}
+
 #dashboard-cards {
     max-width: 1000px;
     max-height: 350px;
     /* border: 1px red solid; */
     overflow: scroll;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }

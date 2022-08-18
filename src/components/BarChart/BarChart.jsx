@@ -37,7 +37,7 @@ function BarChart() {
 
 
   return (
-    <React.Fragment>
+    <React.Fragment style={{margin: 30}}>
       <div className="container-fluid mb-5">
         <h2 className="text-center mt-3 mb-3">Track History</h2>
 
@@ -54,7 +54,7 @@ function BarChart() {
           options={{
             title: {
               text: "",
-              style: { fontSize: 30 },
+              style: { fontSize: 10 },
             },
 
             subtitle: {
