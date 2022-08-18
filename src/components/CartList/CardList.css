@@ -1,0 +1,26 @@
+.cardlist {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: auto;
+    scrollbar-color: #c6cfd7 #ffffff;
+    width: 100%;
+    height: 80vh;
+    margin: auto;
+    /* margin-top: 720px; */
+    /* background-color: beige; */
+}
+
+  /* Chrome, Edge, and Safari */
+.cardlist::-webkit-scrollbar {
+    width: 16px;
+}
+
+.cardlist::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.cardlist::-webkit-scrollbar-thumb {
+    background-color: #c6cfd7;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}

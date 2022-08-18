@@ -1,0 +1,22 @@
+.bmi {
+    /* border: 1px solid lightgray; */
+    border-radius: 20px;
+    /* box-shadow: 5px 5px 10px lightgrey; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    width: 265px;
+    padding: 20px 0;
+}
+
+.bmi h3 {
+    margin: 0px;
+
+}
+
+.bmi h1 {
+    text-align: center;
+    margin: 0
+}
+
+/* * {
+    border: 1px solid red;
+} */

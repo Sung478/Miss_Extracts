@@ -1,0 +1,59 @@
+.profile {
+    background: #FFF573;
+    border-radius: 0px 30px 30px 0px;
+}
+
+.profile img {
+    padding: 20px;
+    /* padding-top: 150px; */
+}
+
+.nameProfile, .profileDetails {
+    color: #000;
+    margin: 0;
+}
+
+.profileDetails {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+
+.userName {
+    color: #1E1E1E;
+    font-size: 14px;
+    margin: 0;
+}
+
+.nameProfile {
+    font-size: 35px;
+    margin: 0;
+}
+
+.name {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.birthDay {
+    margin: 0;
+}
+
+.age {
+    margin: 0;
+}
+
+.weigth {
+    margin: 0;
+}
+
+.height {
+    margin: 0;
+}
+
+.BMI {
+    margin: 0;
+    padding-bottom: 120px;
+    padding-left: 120px;
+    padding-right: 120px;
+}

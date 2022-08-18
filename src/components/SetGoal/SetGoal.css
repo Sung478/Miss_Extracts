@@ -1,0 +1,83 @@
+.setGoalPic {
+float: right;
+width: 640px;
+height: 720px;
+left: 0px;
+top: 0px;
+background: #FFF573;
+}
+
+.setGoalPic img {
+    max-width: 100%;
+     height: auto;
+ }
+
+.setGoalForm {
+display: table-cell;
+text-align: center;
+vertical-align: middle;
+width: 640px;
+height: 720px;
+left: 0px;
+top: 0px;
+font-size: large;
+background:  #ffffff;
+}
+
+.setGoalForm button {
+    background-color: #FFF573;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+
+.setGoalForm input {
+    background-color: rgba(216, 215, 215, 0.898);
+    width: 328px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.setGoalForm select {
+    background-color: rgba(216, 215, 215, 0.898);
+    width: 328px;
+    height: 45px;
+    border-radius: 5px; 
+    border: 1px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.setGoalForm textarea {
+    background-color: rgba(216, 215, 215, 0.898);
+    width: 328px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px;
+    padding-left: 10px;
+    margin-top: 2px;
+
+}
+
+.setGoalForm label {
+    font-weight: bolder;
+    width: 450px;
+    flex-direction: column  ;
+    display: flex;
+    text-align: left;
+    padding-left: 155px;
+    
+}
+
+.setGoalForm h2 {
+    margin-bottom: 50px;
+}

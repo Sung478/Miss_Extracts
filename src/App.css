@@ -39,3 +39,12 @@
 .read-the-docs {
   color: #888;
 } */
+
+/* * {
+  border: 1px red solid;
+} */
+
+.App {
+  background-color: white;
+  height: 100vh;
+}
