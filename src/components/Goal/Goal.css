@@ -1,0 +1,37 @@
+.goal {
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+}
+
+.goal-heading {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+}
+
+.goal-heading img {
+    height: 2rem;
+}
+
+.goal-container {
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px lightgrey;
+    margin: 0px;
+}
+
+.goal-container div {
+    display: flex;
+    justify-content: center;
+}
+
+.goal-container p {
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+
+.goal-container div p {
+    display: flex;
+    align-items: center;
+}

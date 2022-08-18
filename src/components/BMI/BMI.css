@@ -1,0 +1,15 @@
+.bmi {
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px lightgrey;
+
+    width: 265px;
+}
+
+.bmi h3 {
+    margin-left: 20px
+}
+
+.bmi h1 {
+    text-align: center;
+}
