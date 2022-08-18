@@ -1,0 +1,15 @@
+.home-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.home-info div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+/* style เหมือน home เลยแต่เปลี่ยนชื่อ class เฉยๆ */
