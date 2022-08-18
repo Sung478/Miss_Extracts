@@ -1,6 +1,5 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
 
 export default function NavBar() {
     const isSignIn = true;
@@ -27,7 +26,7 @@ export default function NavBar() {
     return (
         <div className="navbar">
             <Link to='/' className="logo">
-            <img src={logo} alt="logo" />
+            <img src='/logo.png' alt="logo" />
                 <h1>EXTRACKS</h1>
             </Link>
             <nav>
