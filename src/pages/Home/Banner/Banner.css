@@ -8,6 +8,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 50%;
+}
+
+.home button {
+    background-color: #FFF573;
+    border: 0;
+    border-radius: 5px;
+    height: 3rem;
+    width: 300px;
+    font-size: larger;
+    font-weight: bolder;
 }
 

@@ -1,6 +1,7 @@
 .footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: black;
 }
 
@@ -8,4 +9,8 @@
     color: white;
     width: 60%;
     margin: 30px;
+}
+
+.footer button {
+    margin-right: 30px;
 }
