@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.footer p {
+    color: white;
+    width: 60%;
+    margin: 30px;
+}

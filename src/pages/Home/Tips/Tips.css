@@ -1,0 +1,19 @@
+.tips {
+    display: flex;
+    justify-content: center;
+    background-color: #FFF573;
+    margin: 0;
+    width: 100%;
+}
+
+.tips-card {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 60px 30px 60px 30px;
+    text-align: center;
+}
+
+.tips-card h2 {
+    text-transform: uppercase;
+}
