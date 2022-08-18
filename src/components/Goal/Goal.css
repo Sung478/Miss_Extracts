@@ -12,13 +12,15 @@
 
 .goal-heading img {
     height: 2rem;
+    padding: 0;
 }
 
 .goal-container {
     border: 1px solid lightgray;
     border-radius: 20px;
     box-shadow: 5px 5px 10px lightgrey;
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
+    /* height: 100px; */
 }
 
 .goal-container div {

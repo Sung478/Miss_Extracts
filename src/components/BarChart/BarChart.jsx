@@ -43,8 +43,8 @@ function BarChart() {
 
         <Chart
           type="bar"
-          width={550}
-          height={350}
+          width={450}
+          height={250}
           series={[
             {
               name: "Track History",

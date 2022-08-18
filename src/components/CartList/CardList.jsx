@@ -8,7 +8,7 @@ export default function CardList({cards, onRemove}) {
             cards.map(card => {
                 return <Card
                   card={card}
-                  key={card.id}
+                  key={card.activityId}
                   onRemove={onRemove} />
             })
         }

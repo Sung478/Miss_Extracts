@@ -5,6 +5,8 @@ import './Dashboard.css'
 import BarChart from '../../components/BarChart/BarChart'
 import Goal from '../../components/Goal/Goal'
 import BMI from '../../components/BMI/BMI'
+import Profile from '../../components/Profile/Profile'
+import CardList from "../../components/CartList/CardList";
 
 export default function Dashboard() {
     const [user, setUser] = useState([
@@ -23,17 +25,50 @@ export default function Dashboard() {
                 inspiration: "ware kid's clothhh and dance all night",
             },
             doneWeekly: 4,
+            activities: [
+                { 
+                    activityId: '1',
+                    activityType: 'cardio',
+                    activityName: 'running',
+                    date: "2022-07-08",
+                    duration: 30,
+                    comment: 'nice vibe'
+                },
+                { 
+                    activityId: '2',
+                    activityType: 'cardio',
+                    activityName: 'running',
+                    date: "2022-07-08",
+                    duration: 30,
+                    comment: 'nice vibe'
+                }
+            ]
         }
     ])
 
+    const onRemove = () => {
+        setUser( (prev)=> {
+            prev.activities.filter(card => {
+                return card.activityId != selectedCard.activityId
+            })
+        })
+    }
+
     return (
-        <div>
-            <div>{/*เอา profile component มาใส่นะะ*/}</div>
-            <div className='dashboard'>
-                <Goal inspiration={user[0].goal.inspiration} weeklyGoal={user[0].goal.weeklyGoal} doneWeekly={user[0].doneWeekly} />
-                <BMI weight={user[0].weight} height={user[0].height} />
+        <div id='dashboard'>
+            <div className="dashboard-profile"><Profile/></div>
+            <div className='dashboard-summary'>
+                <div>
+                    <div id='dashboard-goal'>
+                        <Goal inspiration={user[0].goal.inspiration} weeklyGoal={user[0].goal.weeklyGoal} doneWeekly={user[0].doneWeekly} />
+                        <BMI weight={user[0].weight} height={user[0].height} />
+                    </div>
+                    <BarChart />
+                </div>
+                <div id='dashboard-cards'>
+                    <CardList cards={user[0].activities} noRemove={onRemove} />
+                </div>
             </div>
-            <BarChart />
         </div>
     )
 }
