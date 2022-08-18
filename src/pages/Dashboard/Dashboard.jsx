@@ -47,12 +47,12 @@ export default function Dashboard() {
         }
     ])
 
-    const onRemove = () => {
-        setUser( (prev)=> {
-            prev.activities.filter(card => {
+    function onRemove() {
+        setUser( prev => 
+            prev[0].activities.filter( card => {
                 return card.activityId != selectedCard.activityId
             })
-        })
+        )
     }
 
     return (
@@ -67,7 +67,7 @@ export default function Dashboard() {
                     <BarChart />
                 </div>
                 <div id='dashboard-cards'>
-                    <CardList cards={user[0].activities} noRemove={onRemove} />
+                    <CardList cards={user[0].activities} onRemove={onRemove} />
                     <Link to='/myActivities'>see more ...</Link>
                 </div>
             </div>

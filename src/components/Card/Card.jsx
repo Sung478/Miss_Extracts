@@ -16,7 +16,7 @@ export default function Card({card, onRemove}) {
                     <a><img src='/edit.png' alt="edit"/></a>
                 </div>
             </div>
-            <div class="card-body">
+            <div className="card-body">
                 <div className="card-detail">
                     <p>type: {card.activityType}</p>
                     <p>activity: {card.activityName}</p>
