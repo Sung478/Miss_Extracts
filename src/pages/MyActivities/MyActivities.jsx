@@ -7,6 +7,7 @@ import CardList from "../../components/CartList/CardList";
 export default function MyActivities() {
     const [user, setUser] = useState([
         {
+            userId: '1',
             name: 'Sung',
             username: 'username',
             email: 'sung000@hotmail.com',
@@ -43,11 +44,11 @@ export default function MyActivities() {
     ])
 
     function onRemove(selectedCard) {
-        setUser( prev=> 
-            prev.activities.filter(card => {
-                return card.activityId != selectedCard.activityId
-            })
-        )
+        const newCards = user[0].activities.filter( activity => {
+            return activity.activityId != selectedCard.activityId
+        })
+        console.log(newCards)
+        setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
     }
 
     return (
