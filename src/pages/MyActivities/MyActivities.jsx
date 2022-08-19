@@ -47,7 +47,6 @@ export default function MyActivities() {
         const newCards = user[0].activities.filter( activity => {
             return activity.activityId != selectedCard.activityId
         })
-        console.log(newCards)
         setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
     }
 
