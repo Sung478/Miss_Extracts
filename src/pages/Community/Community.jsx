@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Community.css'
 
 import Profile from '../../components/Profile/Profile'
-import CardList from "../../components/CartList/CardList";
+import CommunityList from "../../components/CommunityCard/CommunityList";
 
 export default function Community() {
     const [user, setUser] = useState([
@@ -55,7 +55,7 @@ export default function Community() {
         <div id='community'>
             <div className="community-profile"><Profile/></div>
             <div id='community-cards'>
-                <CardList cards={user[0].activities} onRemove={onRemove} />
+                <CommunityList cards={user} onRemove={onRemove} />
             </div>
         </div>
     )

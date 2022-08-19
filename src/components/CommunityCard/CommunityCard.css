@@ -1,0 +1,70 @@
+.communityList {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: auto;
+    scrollbar-color: #c6cfd7 #ffffff;
+    width: 100%;
+    height: 80vh;
+    margin: auto;
+    /* margin-top: 720px; */
+    /* background-color: beige; */
+}
+
+  /* Chrome, Edge, and Safari */
+.communityList::-webkit-scrollbar {
+    width: 16px;
+}
+
+.communityList::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.communityList::-webkit-scrollbar-thumb {
+    background-color: #c6cfd7;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+.communityCard {
+    width: 80%;
+    padding: 0.75rem;
+    margin: 2rem auto;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 1.5rem;
+    text-align: left;
+}
+
+.communityCard .card-head {
+    display: flex;
+    margin: 0.25rem 0.75rem 0 0.75rem;
+    justify-content: space-between;
+    align-items:baseline;
+    opacity: 0.25;
+    font-size: 0.75rem;
+    /* color: lightgray; */
+}
+.communityCard .card-head img {
+    height: 1rem;
+    margin-left: 0.5rem;
+    border: none;
+}
+
+.communityCard .card-body {
+    display: flex;
+    margin: 0 0.75rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.communityCard .card-body .card-detail {
+    width: 30%;
+}
+
+.communityCard .card-body .card-text {
+    width: 65%;
+}
+
+.communityCard .card-body img {
+    margin-right: 20px;
+}
