@@ -1,12 +1,13 @@
-* {
-    /* border: red solid 1px; */
-    margin: 10px;
-}
+/* * {
+    border: red solid 1px; 
+
+} */
 
 .setting {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -15,22 +16,32 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 10px;
+    text-align: start;
 }
 
 .setting-forms h2 {
     width: 75%;
     text-align: center;
+    margin: 10px;
 }
 
+/* #name-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+} */
 
 .picture-name img {
     height: auto;
     width: 100%;
     clip-path: circle();
+    margin: 10px;
 }
 
 #update-profile {
     display: none;
+    margin: 10px;
 }
 
 .profile-pic {
@@ -44,6 +55,7 @@
     width: 100px;
     z-index: 3;
     overflow: hidden;
+    margin: 10px;
 }
 
 .profile-pic label {
@@ -55,26 +67,31 @@
     align-items: center;
     height: 30px;
     width: 100px;
-    top: 100px;
+    top: 170px;
     cursor: pointer;
+    margin: 10px;
 }
 
 #info-container{
     border-right: black 1px solid;
+    margin: 10px;
 }
 
 .picture-name {
     display: flex;
+    margin: 10px;
 }
 
 #name-top {
     text-align: left;
+    margin: 10px;
 }
 
 .personal-infomation {
     width: 450px;
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 .setting input {
@@ -84,6 +101,7 @@
     border-radius: 5px;
     border: 1px;
     padding-left: 10px;
+    margin: 10px;
 }
 
 
@@ -92,18 +110,22 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin: 10px;
 }
 
 .goal-form {
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 .setting a {
     text-align: right;
+    margin: 10px;
 }
 
 #goal-h2 {
     width: 100%;
+    margin: 10px;
 }
 
