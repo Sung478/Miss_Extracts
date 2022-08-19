@@ -1,6 +1,6 @@
 .setGoalPic {
 float: right;
-width: 640px;
+width: 50%;
 height: 720px;
 left: 0px;
 top: 0px;
@@ -16,7 +16,7 @@ background: #FFF573;
 display: table-cell;
 text-align: center;
 vertical-align: middle;
-width: 640px;
+width: 50%;
 height: 720px;
 left: 0px;
 top: 0px;
