@@ -7,6 +7,7 @@ import Home from './pages/Home/Home'
 import Dashboard from './pages/Dashboard/Dashboard'
 import MyActivities from './pages/MyActivities/MyActivities'
 import Community from './pages/Community/Community'
+import Setting from './pages/Setting/Setting'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/activities' element={<MyActivities/>} />
           <Route path='/community' element={<Community/>} />
+          <Route path='/setting' element={<Setting/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,12 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import { appendErrors, useForm } from 'react-hook-form';
-import './Setting.css'
-import sung from '../../assets/Sung_SlackProfile.jpg'
+import './SettingForm.css';
 
 const picture = 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007'
 
 
-export function Setting() {
+export function SettingForm() {
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [picUpdate, setPicUpdate] = useState(false);
 
@@ -60,11 +59,11 @@ export function Setting() {
             <div id='info-container' >
                 <div className='picture-name'>
                     <div className='profile-pic' onMouseEnter={showPicUpdate} onMouseLeave={hidePicUpdate}>
-                        <img src={sung}/>
+                        <img src='/profile.png'/>
                         <input id='update-profile' type='file' />
                         {picUpdate && <label htmlFor='update-profile'>Choose Photo</label>}
                     </div>
-                    <div>
+                    <div id='name-head'>
                         <h2 id='name-top'>{user[0].name}</h2>
                         <h3>{user[0].username}</h3>
                     </div>
