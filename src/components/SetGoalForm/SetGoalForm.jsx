@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import image from "./SetGoalImage.png";
-import "./SetGoal.css";
+import "./SetGoalForm.css";
 
-export default function SetGoal() {
+export default function SetGoalForm() {
   const {
     register,
     handleSubmit,

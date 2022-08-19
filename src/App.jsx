@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import MyActivities from './pages/MyActivities/MyActivities'
 import Community from './pages/Community/Community'
 import Setting from './pages/Setting/Setting'
+import SetGoal from './pages/SetGoal/SetGoal'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/activities' element={<MyActivities/>} />
           <Route path='/community' element={<Community/>} />
           <Route path='/setting' element={<Setting/>} />
+          <Route path='/setgoal' element={<SetGoal/>} />
         </Routes>
       </BrowserRouter>
     </div>
