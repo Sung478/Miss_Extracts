@@ -20,5 +20,6 @@
     width: 300px;
     font-size: larger;
     font-weight: bolder;
+    cursor: pointer;
 }
 

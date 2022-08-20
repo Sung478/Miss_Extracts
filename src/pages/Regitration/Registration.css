@@ -13,7 +13,7 @@
     background-color: #FFF573;
     height: 3rem;
     margin-top: 50px;
-
+    cursor: pointer;
 }
 
 .regis-form input {
