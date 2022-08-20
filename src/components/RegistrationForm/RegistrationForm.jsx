@@ -2,7 +2,7 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import { useState } from 'react'
 
-export default function Registeration() {
+export default function RegistrationForm() {
   const { register, handleSubmit, formState:{errors}, } = useForm({
     defaultValues: {
       username: '',

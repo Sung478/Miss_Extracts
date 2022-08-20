@@ -20,7 +20,7 @@ export default function NavBar() {
     }
 
     if (isHome) {
-        navElements.push(<Link to='signup'><p>Get Started</p></Link>)
+        navElements.push(<Link to='registration'><p>Get Started</p></Link>)
     }
 
     return (
