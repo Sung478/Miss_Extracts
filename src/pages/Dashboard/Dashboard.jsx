@@ -57,7 +57,7 @@ export default function Dashboard() {
 
     return (
         <div id='dashboard'>
-            <div className="dashboard-profile"><Profile/></div>
+            <div className="dashboard-profile"><Profile user={user}/></div>
             <div className='dashboard-summary'>
                 <div>
                     <div id='dashboard-goal'>

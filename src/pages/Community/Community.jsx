@@ -4,11 +4,16 @@ import './Community.css'
 import Profile from '../../components/Profile/Profile'
 import CommunityList from "../../components/CommunityCard/CommunityList";
 import axiosInstance from "../../config/axios";
+import Pagination from "../../components/Pagination/Pagination";
 
 export default function Community() {
     const [isLoading, setIsLoading] = useState(true)
     const [user, setUser] = useState('')
     const [community, setCommunity] = useState([])
+    const [currentItems, setCurrentItems] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
+    const itemsPerPage = 3;
 
     const login = async () => {
         await axiosInstance.post('/auth/signin', {
@@ -53,12 +58,25 @@ export default function Community() {
         setCommunity(newCards);
     }
 
+    useEffect(() => {
+        const endOffset = itemOffset + itemsPerPage;
+        setCurrentItems(community.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(community.length / itemsPerPage));
+    }, [itemOffset, itemsPerPage, user]);
+
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % community.length;
+        setItemOffset(newOffset);
+    } 
+
+
     if(isLoading) return <h3>Loading...</h3>
     return (
         <div id='community'>
-            <div className="community-profile"><Profile/></div>
+            <div className="community-profile"><Profile user={user}/></div>
             <div id='community-cards'>
-                <CommunityList cards={community} userId={user.user_id} onRemove={onRemove} />
+                <CommunityList cards={currentItems} userId={user.user_id} onRemove={onRemove} />
+                <Pagination pageCount={pageCount} onClick={handlePageClick} />
             </div>
         </div>
     )

@@ -132,7 +132,7 @@ export default function MyActivities() {
     if(isLoading) return <h3>Loading...</h3>
     return (
         <div id='myActivities'>
-            <div className="myActivities-profile"><Profile/></div>
+            <div className="myActivities-profile"><Profile user={user}/></div>
             <div id='myActivities-cards'>
                 <CardList cards={currentItems} onRemove={onRemove} />
                 <Pagination pageCount={pageCount} onClick={handlePageClick} />
