@@ -10,6 +10,7 @@ import Community from './pages/Community/Community'
 import Setting from './pages/Setting/Setting'
 import SetGoal from './pages/SetGoal/SetGoal'
 import Registration from './pages/Regitration/Registration'
+import SignIn_test from './pages/SignIn_test/SignIn_test'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/setting' element={<Setting/>} />
           <Route path='/setgoal' element={<SetGoal/>} />
           <Route path='/registration' element={<Registration/>} />
+          <Route path='/signin' element={<SignIn_test/>} />
         </Routes>
       </BrowserRouter>
     </div>

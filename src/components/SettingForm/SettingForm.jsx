@@ -7,7 +7,7 @@ import './SettingForm.css';
 const picture = 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007'
 
 
-export function SettingForm({user, isLoading}) {
+export function SettingForm({user, isLoading, signOut}) {
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [picUpdate, setPicUpdate] = useState(false);
 
@@ -69,6 +69,7 @@ export function SettingForm({user, isLoading}) {
         console.log(data);
         await axiosInstance.put('/user_id', {...data});
         navigate('../setting')
+        alert('User updated')
         console.log(user)
     }
 
@@ -122,7 +123,7 @@ export function SettingForm({user, isLoading}) {
             </div>
         </div>
         <button type='submit' style={{ width: '328px', height: '49px' }}>Save</button>
-        <a href=''>Log Out</a>
+        <a onClick={signOut}>Log Out</a>
     </form>
   )
 }

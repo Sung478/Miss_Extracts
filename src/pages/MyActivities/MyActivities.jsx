@@ -125,7 +125,6 @@ export default function MyActivities() {
             return activity.activityId != selectedCard.activityId
         })
         //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
-        console.log(selectedCard)
         const activityId = selectedCard.activityId;
         deleteActivity(activityId);
         setUser((prev)=>({...prev, activities: newCards}));
@@ -133,7 +132,7 @@ export default function MyActivities() {
     if(isLoading) return <h3>Loading...</h3>
     return (
         <div id='myActivities'>
-            <div className="myActivities-profile"><Profile/></div>
+            <div className="myActivities-profile"><Profile user={user}/></div>
             <div id='myActivities-cards'>
                 <CardList cards={currentItems} onRemove={onRemove} />
                 <Pagination pageCount={pageCount} onClick={handlePageClick} />
