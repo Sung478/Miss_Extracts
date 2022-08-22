@@ -4,9 +4,11 @@ import './MyActivities.css'
 import Profile from '../../components/Profile/Profile'
 import CardList from "../../components/CartList/CardList";
 import Pagination from "../../components/Pagination/Pagination";
+import axiosInstance from "../../config/axios";
 
 export default function MyActivities() {
-    const [user, setUser] = useState([
+
+    const [user, setUser] = useState(
         {
             userId: '1',
             name: 'Sung',
@@ -74,28 +76,50 @@ export default function MyActivities() {
                 }
             ]
         }
-    ])
+    )
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
     const itemsPerPage = 3;
 
+
+    // backend connection
+    const login = async () => {
+        await axiosInstance.post('/auth/signin', {
+            username: "tester001",
+            password: "12345678",
+        }).then(() => console.log("login success")
+        ).catch(() => console.log('login failed'))
+    }
+
+    const getActvities = async () => {
+        const response = await axiosInstance.get('/user_id')
+        setUser(response.data)
+        console.log(user)
+    }
+
+    useEffect( () => {
+        login()
+        getActvities();
+    }, []);
+
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        setCurrentItems(user[0].activities.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(user[0].activities.length / itemsPerPage));
+        setCurrentItems(user.activities.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(user.activities.length / itemsPerPage));
     }, [itemOffset, itemsPerPage, user]);
 
-    const handlePageClick = (e) => {
-        const newOffset = (e.selected * itemsPerPage) % user[0].activities.length;
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % user.activities.length;
         setItemOffset(newOffset);
     } 
 
     function onRemove(selectedCard) {
-        const newCards = user[0].activities.filter( activity => {
+        const newCards = user.activities.filter( activity => {
             return activity.activityId != selectedCard.activityId
         })
-        setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
+        //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
+        setUser((prev)=>({...prev, activities: newCards}));
     }
 
     return (
