@@ -104,7 +104,7 @@ export default function Dashboard() {
                         <h3>Recent Activities</h3>
                     </div>
                     <CardList cards={user.activities} onRemove={onRemove} />
-                    <Link to='/myActivities'>see more ...</Link>
+                    <Link to='/activities'>see more ...</Link>
                 </div>
             </div>
         </div>
