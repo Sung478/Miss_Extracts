@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import axiosInstance from "../../config/axios";
 
 export default function MyActivities() {
-
+    const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState(
         {
             userId: '1',
@@ -86,7 +86,7 @@ export default function MyActivities() {
     // backend connection
     const login = async () => {
         await axiosInstance.post('/auth/signin', {
-            username: "tester001",
+            username: "tester002",
             password: "12345678",
         }).then(() => console.log("login success")
         ).catch(() => console.log('login failed'))
@@ -95,7 +95,13 @@ export default function MyActivities() {
     const getActvities = async () => {
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
-        console.log(user)
+        setIsLoading(false)
+    }
+
+    const deleteActivity = async (activityId) => {
+        console.log(activityId)
+        await axiosInstance.delete(`/user_id/activities/${activityId}`)
+        console.log("activity deleted")
     }
 
     useEffect( () => {
@@ -119,9 +125,12 @@ export default function MyActivities() {
             return activity.activityId != selectedCard.activityId
         })
         //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
+        console.log(selectedCard)
+        const activityId = selectedCard.activityId;
+        deleteActivity(activityId);
         setUser((prev)=>({...prev, activities: newCards}));
     }
-
+    if(isLoading) return <h3>Loading...</h3>
     return (
         <div id='myActivities'>
             <div className="myActivities-profile"><Profile/></div>
