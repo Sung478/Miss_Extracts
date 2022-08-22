@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './MyActivities.css'
 
 import Profile from '../../components/Profile/Profile'
 import CardList from "../../components/CartList/CardList";
+import Pagination from "../../components/Pagination/Pagination";
 
 export default function MyActivities() {
     const [user, setUser] = useState([
@@ -38,10 +39,57 @@ export default function MyActivities() {
                     date: "2022-07-08",
                     duration: 30,
                     comment: 'nice vibe'
+                },
+                { 
+                    activityId: '3',
+                    activityType: 'cardio',
+                    activityName: 'running',
+                    date: "2022-07-08",
+                    duration: 30,
+                    comment: 'nice vibe'
+                },
+                { 
+                    activityId: '4',
+                    activityType: 'cardio',
+                    activityName: 'running',
+                    date: "2022-07-08",
+                    duration: 30,
+                    comment: 'nice vibe'
+                },
+                { 
+                    activityId: '5',
+                    activityType: 'cardio',
+                    activityName: 'running',
+                    date: "2022-07-08",
+                    duration: 30,
+                    comment: 'nice vibe'
+                },
+                { 
+                    activityId: '6',
+                    activityType: 'cardio',
+                    activityName: 'running',
+                    date: "2022-07-08",
+                    duration: 30,
+                    comment: 'nice vibe'
                 }
             ]
         }
     ])
+    const [currentItems, setCurrentItems] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
+    const itemsPerPage = 3;
+
+    useEffect(() => {
+        const endOffset = itemOffset + itemsPerPage;
+        setCurrentItems(user[0].activities.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(user[0].activities.length / itemsPerPage));
+    }, [itemOffset, itemsPerPage, user]);
+
+    const handlePageClick = (e) => {
+        const newOffset = (e.selected * itemsPerPage) % user[0].activities.length;
+        setItemOffset(newOffset);
+    } 
 
     function onRemove(selectedCard) {
         const newCards = user[0].activities.filter( activity => {
@@ -54,7 +102,8 @@ export default function MyActivities() {
         <div id='myActivities'>
             <div className="myActivities-profile"><Profile/></div>
             <div id='myActivities-cards'>
-                <CardList cards={user[0].activities} onRemove={onRemove} />
+                <CardList cards={currentItems} onRemove={onRemove} />
+                <Pagination pageCount={pageCount} onClick={handlePageClick} />
             </div>
         </div>
     )
