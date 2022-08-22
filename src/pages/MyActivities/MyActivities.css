@@ -1,5 +1,7 @@
 #myActivities {
     display: flex;
+    min-height: 720px;
+    background-color: white;
 }
 
 #myActivities-cards {

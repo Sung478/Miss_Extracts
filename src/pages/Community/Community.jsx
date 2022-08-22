@@ -42,6 +42,7 @@ export default function Community() {
             ]
         }
     ])
+    
 
     function onRemove(selectedCard) {
         const newCards = user[0].activities.filter( activity => {
