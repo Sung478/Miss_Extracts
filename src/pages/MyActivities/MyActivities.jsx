@@ -125,7 +125,6 @@ export default function MyActivities() {
             return activity.activityId != selectedCard.activityId
         })
         //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
-        console.log(selectedCard)
         const activityId = selectedCard.activityId;
         deleteActivity(activityId);
         setUser((prev)=>({...prev, activities: newCards}));

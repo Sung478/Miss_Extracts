@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './CommunityCard.css'
 
-export default function CommunityCard({card, onRemove}) {
-
+export default function CommunityCard({card, userId, onRemove}) {
+    const [ myActivity, setMyactivity] = useState(false)
     const removeCard = () => {
         onRemove(card)
       }
-
-    console.log(card)
+  useEffect(() => {
+    if(card.user_id === userId) {setMyactivity(true)}
+  })
+  
 
   return (
     <div className='communityCard'>
             <div className='card-head'>
                 <p>{card.activities.date}</p>
-                <div>
+               { myActivity ? (<div>
                     <a onClick={removeCard}><img src='/remove.png' alt="remove"/></a>
                     <a><img src='/edit.png' alt="edit"/></a>
-                </div>
+                </div>) : null }
             </div>
             <div className="card-body">
                 <img src='/profile.png' alt='profile'/>
