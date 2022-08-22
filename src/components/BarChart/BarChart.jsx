@@ -37,9 +37,12 @@ function BarChart() {
 
 
   return (
-    <React.Fragment style={{margin: 30}}>
+    <React.Fragment>
       <div className="container-fluid mb-5">
-        <h2 className="text-center mt-3 mb-3">Track History</h2>
+        <div className="dashboard-header">
+          <img className="header-icon" src="/bar-graph.png" />
+          <h3 className="text-center mt-3 mb-3">Track History</h3>
+        </div>
 
         <Chart
           type="bar"

@@ -10,7 +10,7 @@ export default function Card({card, onRemove}) {
     return (
         <div className='card'>
             <div className='card-head'>
-                <p>{card.date}</p>
+                <p>{new Date(card.date).toLocaleDateString()}</p>
                 <div>
                     <a onClick={removeCard}><img src='/remove.png' alt="remove"/></a>
                     <a><img src='/edit.png' alt="edit"/></a>

@@ -14,7 +14,7 @@ export default function CommunityCard({card, userId, onRemove}) {
   return (
     <div className='communityCard'>
             <div className='card-head'>
-                <p>{card.activities.date}</p>
+                <p>{new Date(card.activities.date).toLocaleDateString()}</p>
                { myActivity ? (<div>
                     <a onClick={removeCard}><img src='/remove.png' alt="remove"/></a>
                     <a><img src='/edit.png' alt="edit"/></a>
