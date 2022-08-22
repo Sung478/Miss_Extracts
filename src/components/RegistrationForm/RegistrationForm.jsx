@@ -1,24 +1,32 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../config/axios";
 
 export default function RegistrationForm() {
+  const navigate = useNavigate();
   const { register, handleSubmit, formState:{errors}, } = useForm({
     defaultValues: {
       username: '',
       name: '',
       email: '',
       password: '',
-      dateOfBirth: '',
+      birthDate: '',
       height: '',
       weight: ''
     }
   });
 
+  const onSummit = async (data) => {
+    await axiosInstance.post('/auth/signup', {...data})
+    console.log(data);
+    navigate('../');
+    // เปลี่ยน navigate ไป signin ตอน page signin เสร็จ
+}
 
   return (
     <div className = 'regis-form'>
-      <form onSubmit={handleSubmit(console.log)}>
+      <form onSubmit={handleSubmit(onSummit)}>
         <h2>Create Account</h2>
         <input {...register('username', {required: true, minLength: 6, maxLength: 15})} id='username' placeholder='Username' /><br/>
         {errors.username && errors.username.type === 'required' && <span>Invalid or empty username.<br/></span>}
@@ -35,7 +43,7 @@ export default function RegistrationForm() {
         {errors.password && errors.password.type === 'required' && <span>Password is required<br/></span>}
         {errors.password && (errors.password.type === 'minLength' || errors.password.type === 'maxLength') && <span>Your password must be between 8-16 characters.<br/></span>}
 
-        <input {...register('dateOfBirth', {required: true})} id='dateOfBirth' type="date" placeholder="Date of birth" /><br/>
+        <input {...register('birthDate', {required: true})} id='birthDate' type="date" placeholder="Date of birth" /><br/>
 
         <input {...register('height', {required: true})} id='height' type="number" placeholder="Height(cm)" /><br/>
         {errors.height && errors.height.type === 'required' && <span>What's your height?<br/></span>}
