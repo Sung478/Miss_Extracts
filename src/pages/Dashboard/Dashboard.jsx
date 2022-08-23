@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { Link } from "react-router-dom";
 import './Dashboard.css'
 
@@ -7,10 +7,12 @@ import BarChart from '../../components/BarChart/BarChart'
 import Goal from '../../components/Goal/Goal'
 import BMI from '../../components/BMI/BMI'
 import Profile from '../../components/Profile/Profile'
-import CardList from "../../components/CartList/CardList";
+import CardList from "../../components/CartList/CardList"
+import axiosInstance from "../../config/axios";
 
 export default function Dashboard() {
-    const [user, setUser] = useState([
+    const [isLoading, setIsLoading] = useState(true);
+    const [user, setUser] = useState(
         {
             name: 'Sung',
             username: 'username',
@@ -45,30 +47,64 @@ export default function Dashboard() {
                 }
             ]
         }
-    ])
+    )
 
-    function onRemove() {
-        setUser( prev => 
-            prev[0].activities.filter( card => {
-                return card.activityId != selectedCard.activityId
-            })
-        )
+    const login = async () => {
+        await axiosInstance.post('/auth/signin', {
+            username: "tester002",
+            password: "12345678",
+        }).then(() => console.log("login success")
+        ).catch(() => console.log('login failed'))
     }
+
+    const getActvities = async () => {
+        const response = await axiosInstance.get('/user_id')
+        setUser(response.data)
+        setIsLoading(false)
+    }
+
+    const deleteActivity = async (activityId) => {
+        console.log(activityId)
+        await axiosInstance.delete(`/user_id/activities/${activityId}`)
+        console.log("activity deleted")
+    }
+
+    useEffect( () => {
+        login()
+        getActvities();
+    }, []);
+    
+
+    function onRemove(selectedCard) {
+        const newCards = user.activities.filter( activity => {
+            return activity.activityId != selectedCard.activityId
+        })
+        //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
+        const activityId = selectedCard.activityId;
+        deleteActivity(activityId);
+        setUser((prev)=>({...prev, activities: newCards}));
+    }
+
+    if(isLoading) return <h3>Loading...</h3>
 
     return (
         <div id='dashboard'>
-            <div className="dashboard-profile"><Profile/></div>
+            <div className="dashboard-profile"><Profile user={user}/></div>
             <div className='dashboard-summary'>
                 <div>
                     <div id='dashboard-goal'>
-                        <Goal inspiration={user[0].goal.inspiration} weeklyGoal={user[0].goal.weeklyGoal} doneWeekly={user[0].doneWeekly} />
-                        <BMI weight={user[0].weight} height={user[0].height} />
+                        <Goal inspiration={user.goals.inspiration} weeklyGoal={user.goals.weeklyGoal} doneWeekly={user.doneWeekly} />
+                        <BMI weight={user.weight} height={user.height} />
                     </div>
                     <BarChart />
                 </div>
                 <div id='dashboard-cards'>
-                    <CardList cards={user[0].activities} onRemove={onRemove} />
-                    <Link to='/myActivities'>see more ...</Link>
+                    <div id="dashboard-cards-heading">
+                        <img src='/run.png'/>
+                        <h3>Recent Activities</h3>
+                    </div>
+                    <CardList cards={user.activities} onRemove={onRemove} />
+                    <Link to='/activities'>see more ...</Link>
                 </div>
             </div>
         </div>

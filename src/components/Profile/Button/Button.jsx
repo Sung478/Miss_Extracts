@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import buttonPic from "./Vector (1).png";
 import "./Button.css";
+import { Link } from "react-router-dom";
+
 import NewActivityForm from "../../NewActivityForm/NewActivityForm";
 
 export default function Button() {
@@ -17,8 +19,8 @@ export default function Button() {
 
   return(
     <>
-    <button onClick={toggleModal} className="btn-modal">
-      <img src={buttonPic} alt="button" />
+    <button onClick={toggleModal} className="btn-modal button">
+      <Link to='/new-activity'><img src={buttonPic} alt="button" /></Link>
     </button>
     
     {modal && (
@@ -30,7 +32,7 @@ export default function Button() {
       </div>
     )}
     </>
-  );
+    )
 
 }
 

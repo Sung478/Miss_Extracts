@@ -9,6 +9,9 @@ import MyActivities from './pages/MyActivities/MyActivities'
 import Community from './pages/Community/Community'
 import Setting from './pages/Setting/Setting'
 import SetGoal from './pages/SetGoal/SetGoal'
+import Registration from './pages/Regitration/Registration'
+import SignIn_test from './pages/SignIn_test/SignIn_test'
+import NewActivity_Test from './pages/NewActivity/NewActivity_test'
 
 function App() {
 
@@ -23,6 +26,9 @@ function App() {
           <Route path='/community' element={<Community/>} />
           <Route path='/setting' element={<Setting/>} />
           <Route path='/setgoal' element={<SetGoal/>} />
+          <Route path='/registration' element={<Registration/>} />
+          <Route path='/signin' element={<SignIn_test/>} />
+          <Route path='/new-activity' element={<NewActivity_Test/>} />
         </Routes>
       </BrowserRouter>
     </div>
