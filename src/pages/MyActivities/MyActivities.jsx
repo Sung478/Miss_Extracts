@@ -129,6 +129,8 @@ export default function MyActivities() {
         deleteActivity(activityId);
         setUser((prev)=>({...prev, activities: newCards}));
     }
+
+
     if(isLoading) return <h3>Loading...</h3>
     return (
         <div id='myActivities'>
