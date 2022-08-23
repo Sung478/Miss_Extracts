@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {appendErrors, useForm} from 'react-hook-form';
+import './NewActivityForm.css'
 
 export const NewActivityForm = ({onSubmit, isUpdate, user}) => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
@@ -13,14 +14,16 @@ export const NewActivityForm = ({onSubmit, isUpdate, user}) => {
     console.log(user)
     return (
         <div className='acivityform-container'>
-            <h1>New Activity</h1>   
+            <div className='activity-title'>
+                <h1>New Activity</h1>   
+            </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <select {...register("activityType",{required: true})}>
                     <option value="">{isUpdate? user.activities[0].activityType : 'activity type'}</option>
                     <option value="cardio">cardio</option>
                     <option value="weight">weight</option>
                 </select>
-                {errors.activityType && <p>Please chhoose your activity types</p>}
+                {errors.activityType && <p>Please choose your activity types</p>}
                 <br />
                 <select {...register(("activity"))}>                                                                                                                                                            
                     <option value="">{isUpdate? user.activities[0].activity : 'activity'}</option>
@@ -31,7 +34,7 @@ export const NewActivityForm = ({onSubmit, isUpdate, user}) => {
                     <option value="walk">walk</option>
                     <option value="hike">hike</option>
                 </select>
-                {errors.activityType && <p>Please chhoose your activity</p>}                                                   
+                {errors.activityType && <p>Please choose your activity</p>}                                                   
                 <br/>
                 <input value={isUpdate? new Date(user.activities[0].date).toISOString().split('T')[0] : null } type="date" {...register("date",{ required: true})}/>
                 {errors.date && <p>Please enter the date</p>}                                                                           
@@ -41,7 +44,7 @@ export const NewActivityForm = ({onSubmit, isUpdate, user}) => {
                 <br/>
                 <textarea value={isUpdate? user.activities[0].comment : null} placeholder='Comment' {...register("comment")}></textarea>
                 <br/>
-                <button>Add Activity</button>
+                <button className ='add-activity-btn'>Add Activity</button>
             </form> 
         </div>
     )
