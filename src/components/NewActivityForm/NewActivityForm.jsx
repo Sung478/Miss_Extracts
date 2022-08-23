@@ -13,17 +13,17 @@ export const NewActivityForm = (/*{onSubmit, isUpdate, user}*/) => {
 // ===========
     const navigate = useNavigate()
   
-  const login = async () => {
-    await axiosInstance.post('/auth/signin', {
-        username: "tester002",
-        password: "12345678",
-    }).then(() => console.log("login success")
-    ).catch(() => console.log('login failed'))
-}
+//   const login = async () => {
+//     await axiosInstance.post('/auth/signin', {
+//         username: "tester002",
+//         password: "12345678",
+//     }).then(() => console.log("login success")
+//     ).catch(() => console.log('login failed'))
+// }
 
- useEffect(()=>{
-  login()
- }, [])
+//  useEffect(()=>{
+//   login()
+//  }, [])
 
   const onSubmit = async (data) => {
     console.log({...data})

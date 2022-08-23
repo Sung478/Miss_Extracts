@@ -15,13 +15,13 @@ export default function Community() {
     const [itemOffset, setItemOffset] = useState(0);
     const itemsPerPage = 3;
 
-    const login = async () => {
-        await axiosInstance.post('/auth/signin', {
-            username: "tester002",
-            password: "12345678",
-        }).then(() => console.log("login success")
-        ).catch(() => console.log('login failed'))
-    }
+    // const login = async () => {
+    //     await axiosInstance.post('/auth/signin', {
+    //         username: "tester002",
+    //         password: "12345678",
+    //     }).then(() => console.log("login success")
+    //     ).catch(() => console.log('login failed'))
+    // }
 
     const getUer = async() => {
         const response = await axiosInstance.get('/user_id')

@@ -25,13 +25,13 @@ export default function Setting() {
 )
 const navigate = useNavigate();
 
-const login = async () => {
-  await axiosInstance.post('/auth/signin', {
-      username: "tester002",
-      password: "12345678",
-  }).then(() => console.log("login success")
-  ).catch(() => console.log('login failed'))
-}
+// const login = async () => {
+//   await axiosInstance.post('/auth/signin', {
+//       username: "tester002",
+//       password: "12345678",
+//   }).then(() => console.log("login success")
+//   ).catch(() => console.log('login failed'))
+// }
 
 const signout = async () => {
   await axiosInstance.post('/auth/signout')

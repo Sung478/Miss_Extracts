@@ -84,13 +84,13 @@ export default function MyActivities() {
 
 
     // backend connection
-    const login = async () => {
-        await axiosInstance.post('/auth/signin', {
-            username: "tester002",
-            password: "12345678",
-        }).then(() => console.log("login success")
-        ).catch(() => console.log('login failed'))
-    }
+    // const login = async () => {
+    //     await axiosInstance.post('/auth/signin', {
+    //         username: "tester002",
+    //         password: "12345678",
+    //     }).then(() => console.log("login success")
+    //     ).catch(() => console.log('login failed'))
+    // }
 
     const getActvities = async () => {
         const response = await axiosInstance.get('/user_id')
