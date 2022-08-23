@@ -11,28 +11,31 @@ import Setting from './pages/Setting/Setting'
 import SetGoal from './pages/SetGoal/SetGoal'
 import Registration from './pages/Regitration/Registration'
 import SignIn_test from './pages/SignIn_test/SignIn_test'
-import NewActivity_Test from './pages/NewActivity_test/NewActivity_test'
-import UpdateActivity_Test from './pages/UpdateActivity/UpdateActivity_test'
-import TEST from './pages/TEST'
+import IsSignin from './pages/IsSignin/IsSignin'
+import { useState } from 'react'
+
+
 
 function App() {
+  const [isSignin, setIsSignin] = useState(false)
+
+  const checkStatus = (result) =>{
+    setIsSignin(result)
+  }
 
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/dashboard' element={<Dashboard/>} />
-          <Route path='/activities' element={<MyActivities/>} />
-          <Route path='/community' element={<Community/>} />
-          <Route path='/setting' element={<Setting/>} />
-          <Route path='/setgoal' element={<SetGoal/>} />
-          <Route path='/registration' element={<Registration/>} />
-          <Route path='/signin' element={<SignIn_test/>} />
-          <Route path='/new-activity' element={<NewActivity_Test/>} />
-          <Route path='/update-activity' element={<UpdateActivity_Test/>} />
-          <Route path='/test' element={<TEST />} />
+          <Route path='/home' element={<Home/>} isSignin={isSignin} />
+          <Route path='/registration' element={<Registration/>}  />
+          <Route path='/signin' element={<SignIn_test/>}  />
+          <Route path='/' element={<IsSignin checkStatus={checkStatus} />} />
+            <Route path='dashboard' element={<Dashboard/>}  />
+            <Route path='activities' element={<MyActivities/>}  />
+            <Route path='community' element={<Community/>}  />
+            <Route path='setting' element={<Setting checkStatus={checkStatus} />} />
+            {/* <Route path='setgoal' element={<SetGoal/>}  /> */}
         </Routes>
       </BrowserRouter>
     </div>

@@ -16,9 +16,9 @@ export default function NewActivity_Test() {
 //     ).catch(() => console.log('login failed'))
 // }
 
- useEffect(()=>{
-  // login()
- }, [])
+//  useEffect(()=>{
+//   // login()
+//  }, [])
 
   const onSubmit = async (data) => {
     console.log({...data})

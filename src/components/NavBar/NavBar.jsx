@@ -1,12 +1,10 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 
-export default function NavBar() {
-    const isSignIn = true;
-    const isHome = false;
+export default function NavBar({isSignin, isHome}) {
 
     let navElements;
-    if (isSignIn) {
+    if (isSignin) {
         navElements = [
             <Link to='/dashboard'>Dashboard</Link>,
             <Link to='/activities'>My Activity</Link>,
@@ -25,7 +23,7 @@ export default function NavBar() {
 
     return (
         <div className="navbar">
-            <Link to='/' className="logo">
+            <Link to='/home' className="logo">
             <img src='/logo.png' alt="logo" />
                 <h1>EXTRACKS</h1>
             </Link>

@@ -5,6 +5,7 @@ import Profile from '../../components/Profile/Profile'
 import CardList from "../../components/CartList/CardList";
 import Pagination from "../../components/Pagination/Pagination";
 import axiosInstance from "../../config/axios";
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function MyActivities() {
     const [isLoading, setIsLoading] = useState(true);
@@ -82,6 +83,7 @@ export default function MyActivities() {
     const [itemOffset, setItemOffset] = useState(0);
     const itemsPerPage = 3;
 
+    const [isUpdated, setIsUpdated] = useState(false);
 
     // backend connection
     // const login = async () => {
@@ -107,7 +109,7 @@ export default function MyActivities() {
     useEffect( () => {
         // login()
         getActvities();
-    }, []);
+    }, [isUpdated]);
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
@@ -121,22 +123,29 @@ export default function MyActivities() {
     } 
 
     function onRemove(selectedCard) {
-        const newCards = user.activities.filter( activity => {
-            return activity.activityId != selectedCard.activityId
-        })
-        //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
-        const activityId = selectedCard.activityId;
-        deleteActivity(activityId);
-        setUser((prev)=>({...prev, activities: newCards}));
+        if (confirm("Delete this activity?")) {
+            const newCards = user.activities.filter( activity => {
+                return activity.activityId != selectedCard.activityId
+            })
+            //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
+            const activityId = selectedCard.activityId;
+            deleteActivity(activityId);
+            setUser((prev)=>({...prev, activities: newCards}));
+            alert('activity deleted')
+        } else { alert('activity not delete')}
     }
 
+    const reload = () => {
+        setIsUpdated(!isUpdated)
+    }
 
-    if(isLoading) return <h3>Loading...</h3>
+    if(isLoading) return 
     return (
         <div id='myActivities'>
-            <div className="myActivities-profile"><Profile user={user}/></div>
+            <NavBar isSignin={true}/>
+            <div className="myActivities-profile"><Profile user={user} reload={reload}/></div>
             <div id='myActivities-cards'>
-                <CardList cards={currentItems} onRemove={onRemove} />
+                <CardList cards={currentItems} onRemove={onRemove} reload={reload} />
                 <Pagination pageCount={pageCount} onClick={handlePageClick} />
             </div>
         </div>

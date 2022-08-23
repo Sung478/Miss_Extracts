@@ -33,11 +33,9 @@ export const UpdateActivityForm = ({activity, reload , toggleModal}) => {
   
     const onSubmit = async (data) => {
       const response = await axiosInstance.patch(`/user_id/activities/${activity.activityId}`, {...data})
-      reload()
       alert('Activity updated')
-      navigate('../dashboard')
       toggleModal()
-      
+      reload()
     }
   // ===========
 

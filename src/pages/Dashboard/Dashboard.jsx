@@ -8,6 +8,7 @@ import Goal from '../../components/Goal/Goal'
 import BMI from '../../components/BMI/BMI'
 import Profile from '../../components/Profile/Profile'
 import CardList from "../../components/CartList/CardList"
+import NavBar from "../../components/NavBar/NavBar";
 import axiosInstance from "../../config/axios";
 
 export default function Dashboard() {
@@ -64,6 +65,7 @@ export default function Dashboard() {
     const getActvities = async () => {
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
+        console.log(user)
         // const recent = await axiosInstance.get('/user_id/activities/recent-activites')
         // setRecentAct(recent.data)
         setIsLoading(false)
@@ -89,11 +91,12 @@ export default function Dashboard() {
     }, [isUpdated]);
 
     const reload = () => {
-        setIsUpdated(true)
+        setIsUpdated(!isUpdated)
     }
     
 
     function onRemove(selectedCard) {
+        if (confirm("Delete this activity?")) {
         const newCards = user.activities.filter( activity => {
             return activity.activityId != selectedCard.activityId
         })
@@ -101,13 +104,15 @@ export default function Dashboard() {
         const activityId = selectedCard.activityId;
         deleteActivity(activityId);
         setUser((prev)=>({...prev, activities: newCards}));
+        alert('activity deleted')
+    } else { alert('activity not delete')}
     }
 
-    if(isLoading) return <h3>Loading...</h3>
-
+    if(isLoading) return 
     return (
         <div id='dashboard'>
-            <div className="dashboard-profile"><Profile user={user}/></div>
+             <NavBar isSignin={true} />
+            <div className="dashboard-profile"><Profile user={user} reload={reload}/></div>
             <div className='dashboard-summary'>
                 <div>
                     <div id='dashboard-goal'>

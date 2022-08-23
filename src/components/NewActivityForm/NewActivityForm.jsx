@@ -5,7 +5,7 @@ import './NewActivityForm.css'
 import axiosInstance from '../../config/axios';
 import { useNavigate } from 'react-router-dom';
 
-export const NewActivityForm = (/*{onSubmit, isUpdate, user}*/) => {
+export const NewActivityForm = ({toggleModal, reload}/*{onSubmit, isUpdate, user}*/) => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
     const [activityInfo,setActivityInfo] = useState([]);
     const [isUpdate, setIsupdate] = useState(false)
@@ -28,9 +28,10 @@ export const NewActivityForm = (/*{onSubmit, isUpdate, user}*/) => {
   const onSubmit = async (data) => {
     console.log({...data})
     const response = await axiosInstance.put('/user_id/activities/', {...data})
+    reload()
+    toggleModal()
     console.log(response.data)
     alert('Activity added')
-    navigate('../dashboard')
   }
   // ===========
 

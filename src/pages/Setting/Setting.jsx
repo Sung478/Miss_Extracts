@@ -3,8 +3,9 @@ import axiosInstance from '../../config/axios'
 
 import { SettingForm } from '../../components/SettingForm/SettingForm'
 import { useNavigate } from 'react-router-dom'
+import NavBar from '../../components/NavBar/NavBar'
 
-export default function Setting() {
+export default function Setting({ checkStatus }) {
   const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState(
     {
@@ -34,9 +35,11 @@ const navigate = useNavigate();
 // }
 
 const signout = async () => {
-  await axiosInstance.post('/auth/signout')
+  const response = await axiosInstance.post('/auth/signout')
+  console.log(response)
+  checkStatus(false)
   console.log('Signed out')
-  navigate('../')
+  navigate('/home')
   alert('Signed out')
 }
 
@@ -54,7 +57,8 @@ useEffect(() => {
 
   return (
     <div className='setting-page'>
-        <SettingForm user={user} isLoading={isLoading} signOut={signout} />
+      <NavBar isSignin={true} />
+        <SettingForm user={user} isLoading={isLoading} signOut={signout}/>
     </div>
   )
 }
