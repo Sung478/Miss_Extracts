@@ -1,7 +1,10 @@
 import './CardList.css'
 import Card from '../Card/Card';
 
-export default function CardList({cards, onRemove}) {
+export default function CardList({cards, onRemove, reload}) {
+
+  // const end = cards.length-1
+  // const cardsRe = cards.slice(3, end)
 
   return (
     <div className='cardlist'>
@@ -10,7 +13,9 @@ export default function CardList({cards, onRemove}) {
                 return <Card
                   card={card}
                   key={card.activityId}
-                  onRemove={onRemove} />
+                  onRemove={onRemove}
+                  reload={reload}
+                  />
             })
         }
     </div>

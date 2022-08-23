@@ -5,7 +5,7 @@ import "./Profile.css"
 import Button from "./Button/Button";
 
 
-export default function Profile({user}) {
+export default function Profile({user, reload}) {
   console.log(user)
   return (
     <div className="profile">
@@ -21,7 +21,7 @@ export default function Profile({user}) {
           <p className="height">height : {user.height || '-'}</p>
           <p className="BMI"></p>
         </div>
-        <Button />
+        <Button reload={reload} />
       </Box>
     </div>
   );

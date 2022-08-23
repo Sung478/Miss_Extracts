@@ -8,6 +8,7 @@ import Goal from '../../components/Goal/Goal'
 import BMI from '../../components/BMI/BMI'
 import Profile from '../../components/Profile/Profile'
 import CardList from "../../components/CartList/CardList"
+import NavBar from "../../components/NavBar/NavBar";
 import axiosInstance from "../../config/axios";
 
 export default function Dashboard() {
@@ -49,19 +50,33 @@ export default function Dashboard() {
         }
     )
 
-    const login = async () => {
-        await axiosInstance.post('/auth/signin', {
-            username: "tester002",
-            password: "12345678",
-        }).then(() => console.log("login success")
-        ).catch(() => console.log('login failed'))
-    }
+    // const [recentAct, setRecentAct] = useState([]);
+
+    const [isUpdated, setIsUpdated] = useState(false);
+
+    // const login = async () => {
+    //     await axiosInstance.post('/auth/signin', {
+    //         username: "tester002",
+    //         password: "12345678",
+    //     }).then(() => console.log("login success")
+    //     ).catch(() => console.log('login failed'))
+    // }
 
     const getActvities = async () => {
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
+        console.log(user)
+        // const recent = await axiosInstance.get('/user_id/activities/recent-activites')
+        // setRecentAct(recent.data)
         setIsLoading(false)
+        // console.log(recent)
     }
+
+    // const getRecentAct = async () => {
+    //     const recent = await axiosInstance.get('/user_id/activities/recent-activites')
+    //     setRecentAct(recent.data)
+    //     setIsLoading(false)
+    // }
 
     const deleteActivity = async (activityId) => {
         console.log(activityId)
@@ -70,12 +85,18 @@ export default function Dashboard() {
     }
 
     useEffect( () => {
-        login()
+        // login()
         getActvities();
-    }, []);
+        // getRecentAct();
+    }, [isUpdated]);
+
+    const reload = () => {
+        setIsUpdated(!isUpdated)
+    }
     
 
     function onRemove(selectedCard) {
+        if (confirm("Delete this activity?")) {
         const newCards = user.activities.filter( activity => {
             return activity.activityId != selectedCard.activityId
         })
@@ -83,13 +104,15 @@ export default function Dashboard() {
         const activityId = selectedCard.activityId;
         deleteActivity(activityId);
         setUser((prev)=>({...prev, activities: newCards}));
+        alert('activity deleted')
+    } else { alert('activity not delete')}
     }
 
-    if(isLoading) return <h3>Loading...</h3>
-
+    if(isLoading) return 
     return (
         <div id='dashboard'>
-            <div className="dashboard-profile"><Profile user={user}/></div>
+             <NavBar isSignin={true} />
+            <div className="dashboard-profile"><Profile user={user} reload={reload}/></div>
             <div className='dashboard-summary'>
                 <div>
                     <div id='dashboard-goal'>
@@ -103,7 +126,7 @@ export default function Dashboard() {
                         <img src='/run.png'/>
                         <h3>Recent Activities</h3>
                     </div>
-                    <CardList cards={user.activities} onRemove={onRemove} />
+                    <CardList cards={user.activities} onRemove={onRemove} reload={reload} />
                     <Link to='/activities'>see more ...</Link>
                 </div>
             </div>

@@ -7,7 +7,7 @@ import './SettingForm.css';
 const picture = 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007'
 
 
-export function SettingForm({user, isLoading, signOut}) {
+export function SettingForm({user, isLoading, signOut, }) {
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [picUpdate, setPicUpdate] = useState(false);
 
@@ -74,7 +74,7 @@ export function SettingForm({user, isLoading, signOut}) {
     }
 
     
-    if(isLoading) return <h4>Loading...</h4>
+    if(isLoading) return <h3>Loading...</h3>
 
   return (
     <form className='setting' onSubmit={handleSubmit(onSummit)}>

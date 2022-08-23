@@ -10,13 +10,13 @@ export default function UpdateActivity_Test() {
   const [isUpdate, setIsupdate] = useState(true)
   const navigate = useNavigate()
 
-  const login = async () => {
-    await axiosInstance.post('/auth/signin', {
-        username: "tester002",
-        password: "12345678",
-    }).then(() => console.log("login success")
-    ).catch(() => console.log('login failed'))
-}
+//   const login = async () => {
+//     await axiosInstance.post('/auth/signin', {
+//         username: "tester002",
+//         password: "12345678",
+//     }).then(() => console.log("login success")
+//     ).catch(() => console.log('login failed'))
+// }
 
 
 const getActvities = async () => {
@@ -27,7 +27,7 @@ const getActvities = async () => {
 }
 
  useEffect(()=>{
-  login();
+  // login();
   getActvities();
  }, [])
 
@@ -40,7 +40,7 @@ const getActvities = async () => {
   }
   
   if(isLoading) return <h3>Loading...</h3>
-  
+
   return (
     <div className='UpdateActivity'>
         <NewActivityForm user={user} isUpdate={isUpdate} onSubmit={onSubmit} />

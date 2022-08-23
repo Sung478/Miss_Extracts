@@ -5,8 +5,10 @@ import Profile from '../../components/Profile/Profile'
 import CommunityList from "../../components/CommunityCard/CommunityList";
 import axiosInstance from "../../config/axios";
 import Pagination from "../../components/Pagination/Pagination";
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function Community() {
+    const [isUpdated, setIsUpdated] = useState(false);
     const [isLoading, setIsLoading] = useState(true)
     const [user, setUser] = useState('')
     const [community, setCommunity] = useState([])
@@ -15,13 +17,13 @@ export default function Community() {
     const [itemOffset, setItemOffset] = useState(0);
     const itemsPerPage = 3;
 
-    const login = async () => {
-        await axiosInstance.post('/auth/signin', {
-            username: "tester002",
-            password: "12345678",
-        }).then(() => console.log("login success")
-        ).catch(() => console.log('login failed'))
-    }
+    // const login = async () => {
+    //     await axiosInstance.post('/auth/signin', {
+    //         username: "tester002",
+    //         password: "12345678",
+    //     }).then(() => console.log("login success")
+    //     ).catch(() => console.log('login failed'))
+    // }
 
     const getUer = async() => {
         const response = await axiosInstance.get('/user_id')
@@ -40,15 +42,20 @@ export default function Community() {
         console.log("activity deleted")
     }
 
+    const reload = () => {
+        setIsUpdated(!isUpdated)
+    }
+
     useEffect(() => {
-        login()
+        // login()
         getUer()
         getCommunity()
-    }, [])
+    }, [isUpdated])
     
 
     function onRemove(selectedCard) {
         // setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
+        if (confirm("Delete this activity?")) {
         console.log(selectedCard)
         const activityId = selectedCard.activities.activityId;
         deleteActivity(activityId);
@@ -56,6 +63,9 @@ export default function Community() {
             return activity.activities.activityId != activityId
         })
         setCommunity(newCards);
+        alert('activity deleted')
+        reload()
+    } else { alert('activity not delete')}
     }
 
     useEffect(() => {
@@ -70,12 +80,13 @@ export default function Community() {
     } 
 
 
-    if(isLoading) return <h3>Loading...</h3>
+    if(isLoading) return 
     return (
         <div id='community'>
-            <div className="community-profile"><Profile user={user}/></div>
+             <NavBar isSignin={true} />
+            <div className="community-profile"><Profile user={user} reload={reload}/></div>
             <div id='community-cards'>
-                <CommunityList cards={currentItems} userId={user.user_id} onRemove={onRemove} />
+                <CommunityList cards={currentItems} userId={user.user_id} onRemove={onRemove} reload={reload} />
                 <Pagination pageCount={pageCount} onClick={handlePageClick} />
             </div>
         </div>
