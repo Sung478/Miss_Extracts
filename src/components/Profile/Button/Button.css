@@ -1,11 +1,60 @@
-button img {
-    padding: 0;
-    margin: 0;
-    
+body.active-modal {
+    overflow-y: hidden;
 }
 
-.button {
-    background: #FFF573;
-    margin-bottom: 30px;
+.btn-modal {
     padding: 0;
+    margin-bottom: 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background: #FFF573;
+
+}
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 99999px;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #FFFFFF;
+    padding: 14px 28px;
+    border-radius: 24px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+input, select{
+    width: 325px;
+    height: 35px;
+    margin: 2px;
+    border: none;
+    
+    -ms-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box; 
+    box-sizing:content-box;
+
+}
+
+textarea{
+    width: 325px;
+    height: 50px;
+    border: none;
+    margin: 2px;
 }
