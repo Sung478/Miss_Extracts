@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NewActivityForm from '../../components/NewActivityForm/NewActivityForm'
 import axiosInstance from '../../config/axios'
@@ -6,6 +6,7 @@ import axiosInstance from '../../config/axios'
 
 export default function NewActivity_Test() {
   const navigate = useNavigate()
+  const [isUpdate, setIsupdate] = useState(false)
 
   const login = async () => {
     await axiosInstance.post('/auth/signin', {
@@ -29,7 +30,7 @@ export default function NewActivity_Test() {
     
   return (
     <div className='NewActivity'>
-        <NewActivityForm onSubmit={onSubmit} />
+        <NewActivityForm isUpdate={isUpdate} onSubmit={onSubmit} />
     </div>
   )
 }

@@ -11,7 +11,8 @@ import Setting from './pages/Setting/Setting'
 import SetGoal from './pages/SetGoal/SetGoal'
 import Registration from './pages/Regitration/Registration'
 import SignIn_test from './pages/SignIn_test/SignIn_test'
-import NewActivity_Test from './pages/NewActivity/NewActivity_test'
+import NewActivity_Test from './pages/NewActivity_test/NewActivity_test'
+import UpdateActivity_Test from './pages/UpdateActivity/UpdateActivity_test'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/registration' element={<Registration/>} />
           <Route path='/signin' element={<SignIn_test/>} />
           <Route path='/new-activity' element={<NewActivity_Test/>} />
+          <Route path='/update-activity' element={<UpdateActivity_Test/>} />
         </Routes>
       </BrowserRouter>
     </div>
