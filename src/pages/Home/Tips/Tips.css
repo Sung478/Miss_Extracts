@@ -1,9 +1,10 @@
 .tips {
     display: flex;
     justify-content: center;
-    background-color: #FFF573;
+    background-color: #383B81;
     margin: 0;
     width: 100%;
+    color: antiquewhite;
 }
 
 .tips-card {

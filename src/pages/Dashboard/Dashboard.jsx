@@ -49,30 +49,30 @@ export default function Dashboard() {
         }
     )
 
-    const login = async () => {
-        await axiosInstance.post('/auth/signin', {
-            username: "tester002",
-            password: "12345678",
-        }).then(() => console.log("login success")
-        ).catch(() => console.log('login failed'))
-    }
+    // const login = async () => {
+    //     await axiosInstance.post('/auth/signin', {
+    //         username: "tester002",
+    //         password: "12345678",
+    //     }).then(() => console.log("login success")
+    //     ).catch(() => console.log('login failed'))
+    // }
 
-    const getActvities = async () => {
-        const response = await axiosInstance.get('/user_id')
-        setUser(response.data)
-        setIsLoading(false)
-    }
+    // const getActvities = async () => {
+    //     const response = await axiosInstance.get('/user_id')
+    //     setUser(response.data)
+    //     setIsLoading(false)
+    // }
 
-    const deleteActivity = async (activityId) => {
-        console.log(activityId)
-        await axiosInstance.delete(`/user_id/activities/${activityId}`)
-        console.log("activity deleted")
-    }
+    // const deleteActivity = async (activityId) => {
+    //     console.log(activityId)
+    //     await axiosInstance.delete(`/user_id/activities/${activityId}`)
+    //     console.log("activity deleted")
+    // }
 
-    useEffect( () => {
-        login()
-        getActvities();
-    }, []);
+    // useEffect( () => {
+    //     login()
+    //     getActvities();
+    // }, []);
     
 
     function onRemove(selectedCard) {
@@ -85,7 +85,7 @@ export default function Dashboard() {
         setUser((prev)=>({...prev, activities: newCards}));
     }
 
-    if(isLoading) return <h3>Loading...</h3>
+    // if(isLoading) return <h3>Loading...</h3>
 
     return (
         <div id='dashboard'>

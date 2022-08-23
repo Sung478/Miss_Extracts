@@ -3,8 +3,8 @@ import {appendErrors, useForm} from 'react-hook-form';
 import './NewActivityForm.css'
 
 export const NewActivityForm = ({onSubmit, isUpdate, user}) => {
-    const { register, handleSubmit, formState: {errors}, reset } = useForm();
-    const [activityInfo,setActivityInfo] = useState([]);
+    // const { register, handleSubmit, formState: {errors}, reset } = useForm();
+    // const [activityInfo,setActivityInfo] = useState([]);
     // const onSubmit = data => {
     //     setActivityInfo(data)
     //     console.log(data)

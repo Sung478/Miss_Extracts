@@ -2,6 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FFCBD7;
+}
+
+.home-banner h1,h4{
+    font-family: 'DynaPuff', cursive;
 }
 
 .home-banner div {
@@ -12,8 +17,16 @@
     width: 50%;
 }
 
+#bannerPicture{
+    width: 500px;
+    height: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .home button {
-    background-color: #FFF573;
+    background-color: #EC255A;
+    color:aliceblue;
     border: 0;
     border-radius: 5px;
     height: 3rem;
@@ -22,4 +35,9 @@
     font-weight: bolder;
     cursor: pointer;
 }
+
+.home button:hover{
+    background-color: palevioletred;
+}
+
 
