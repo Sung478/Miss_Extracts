@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import {appendErrors, useForm} from 'react-hook-form';
 
-export const NewActivityForm = () => {
+export const NewActivityForm = ({onSubmit}) => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
     const [activityInfo,setActivityInfo] = useState([]);
-    const onSubmit = data => {
-        setActivityInfo(data)
-        console.log(data)
-        reset
-    }
+    // const onSubmit = data => {
+    //     setActivityInfo(data)
+    //     console.log(data)
+    //     reset
+    // }
     return (
         <div className='acivityform-container'>
             <h1>New Activity</h1>   

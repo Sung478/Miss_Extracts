@@ -1,11 +1,11 @@
-import axios from 'axios'
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import SignIn from '../../components/SignIn/SignIn'
 import axiosInstance from '../../config/axios'
 
 export default function SignIn_test() {
     const navigate = useNavigate()
+
+
 
   const onSubmit = async (data) => {
     console.log({...data})
@@ -14,6 +14,7 @@ export default function SignIn_test() {
     alert(response.data)
     navigate('../dashboard')
   }
+
 
   return (
     <div className='SignIn_test'>
