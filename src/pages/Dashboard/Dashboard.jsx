@@ -49,6 +49,8 @@ export default function Dashboard() {
         }
     )
 
+    const [isUpdated, setIsUpdated] = useState(false);
+
     const login = async () => {
         await axiosInstance.post('/auth/signin', {
             username: "tester002",
@@ -72,7 +74,11 @@ export default function Dashboard() {
     useEffect( () => {
         login()
         getActvities();
-    }, []);
+    }, [isUpdated]);
+
+    const reload = () => {
+        setIsUpdated(true)
+    }
     
 
     function onRemove(selectedCard) {
@@ -103,7 +109,7 @@ export default function Dashboard() {
                         <img src='/run.png'/>
                         <h3>Recent Activities</h3>
                     </div>
-                    <CardList cards={user.activities} onRemove={onRemove} />
+                    <CardList cards={user.activities} onRemove={onRemove} reload={reload} />
                     <Link to='/activities'>see more ...</Link>
                 </div>
             </div>

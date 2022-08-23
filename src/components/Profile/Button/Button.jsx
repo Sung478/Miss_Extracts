@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import buttonPic from "./Vector (1).png";
 import "./Button.css";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 import NewActivityForm from "../../NewActivityForm/NewActivityForm";
 
