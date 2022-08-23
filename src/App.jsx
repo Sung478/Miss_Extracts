@@ -13,6 +13,7 @@ import Registration from './pages/Regitration/Registration'
 import SignIn_test from './pages/SignIn_test/SignIn_test'
 import NewActivity_Test from './pages/NewActivity_test/NewActivity_test'
 import UpdateActivity_Test from './pages/UpdateActivity/UpdateActivity_test'
+import TEST from './pages/TEST'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/signin' element={<SignIn_test/>} />
           <Route path='/new-activity' element={<NewActivity_Test/>} />
           <Route path='/update-activity' element={<UpdateActivity_Test/>} />
+          <Route path='/test' element={<TEST />} />
         </Routes>
       </BrowserRouter>
     </div>

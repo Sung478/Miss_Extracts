@@ -83,7 +83,7 @@ export default function Dashboard() {
     }
 
     useEffect( () => {
-        login()
+        // login()
         getActvities();
         // getRecentAct();
     }, [isUpdated]);

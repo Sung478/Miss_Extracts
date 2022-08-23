@@ -105,7 +105,7 @@ export default function MyActivities() {
     }
 
     useEffect( () => {
-        login()
+        // login()
         getActvities();
     }, []);
 

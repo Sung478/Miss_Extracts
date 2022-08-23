@@ -48,7 +48,7 @@ const getActvities = async () => {
 }
 
 useEffect(() => {
-  login();
+  // login();
   getActvities();
 }, [])
 

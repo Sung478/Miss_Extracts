@@ -41,7 +41,7 @@ export default function Community() {
     }
 
     useEffect(() => {
-        login()
+        // login()
         getUer()
         getCommunity()
     }, [])

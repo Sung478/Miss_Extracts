@@ -17,7 +17,7 @@ export default function NewActivity_Test() {
 }
 
  useEffect(()=>{
-  login()
+  // login()
  }, [])
 
   const onSubmit = async (data) => {
