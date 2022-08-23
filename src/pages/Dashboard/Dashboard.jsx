@@ -49,6 +49,8 @@ export default function Dashboard() {
         }
     )
 
+    // const [recentAct, setRecentAct] = useState([]);
+
     const [isUpdated, setIsUpdated] = useState(false);
 
     const login = async () => {
@@ -62,8 +64,17 @@ export default function Dashboard() {
     const getActvities = async () => {
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
+        // const recent = await axiosInstance.get('/user_id/activities/recent-activites')
+        // setRecentAct(recent.data)
         setIsLoading(false)
+        // console.log(recent)
     }
+
+    // const getRecentAct = async () => {
+    //     const recent = await axiosInstance.get('/user_id/activities/recent-activites')
+    //     setRecentAct(recent.data)
+    //     setIsLoading(false)
+    // }
 
     const deleteActivity = async (activityId) => {
         console.log(activityId)
@@ -74,6 +85,7 @@ export default function Dashboard() {
     useEffect( () => {
         login()
         getActvities();
+        // getRecentAct();
     }, [isUpdated]);
 
     const reload = () => {
