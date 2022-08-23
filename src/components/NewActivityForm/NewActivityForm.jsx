@@ -5,11 +5,33 @@ import './NewActivityForm.css'
 export const NewActivityForm = ({onSubmit, isUpdate, user}) => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
     const [activityInfo,setActivityInfo] = useState([]);
-    // const onSubmit = data => {
-    //     setActivityInfo(data)
-    //     console.log(data)
-    //     reset
-    // }
+
+// ===========
+    const navigate = useNavigate()
+  const [isUpdate, setIsupdate] = useState(false)
+
+  const login = async () => {
+    await axiosInstance.post('/auth/signin', {
+        username: "tester002",
+        password: "12345678",
+    }).then(() => console.log("login success")
+    ).catch(() => console.log('login failed'))
+}
+
+ useEffect(()=>{
+  login()
+ }, [])
+
+  const onSubmit = async (data) => {
+    console.log({...data})
+    const response = await axiosInstance.put('/user_id/activities/', {...data})
+    console.log(response.data)
+    alert('Activity added')
+    navigate('../dashboard')
+  }
+  // ===========
+
+    
 
     console.log(user)
     return (

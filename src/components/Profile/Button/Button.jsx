@@ -20,7 +20,8 @@ export default function Button() {
   return(
     <>
     <button onClick={toggleModal} className="btn-modal button">
-      <Link to='/new-activity'><img src={buttonPic} alt="button" /></Link>
+      {/* <Link to='/new-activity'><img src={buttonPic} alt="button" /></Link> */}
+      <img src={buttonPic} alt="button" />
     </button>
     
     {modal && (
