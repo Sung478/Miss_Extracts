@@ -1,0 +1,15 @@
+.add-activity-btn{
+  background-color: #FFF573;
+  width: 328px;
+  height: 49px;
+  border: none;
+  border-radius: 15px;
+}
+
+.add-activity-btn:hover{
+  background-color: #d19fe8;
+}
+
+textarea{
+  resize: none;
+}

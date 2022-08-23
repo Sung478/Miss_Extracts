@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {appendErrors, useForm} from 'react-hook-form';
+import './NewActivityForm.css'
 
 export const NewActivityForm = () => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
@@ -11,14 +12,16 @@ export const NewActivityForm = () => {
     }
     return (
         <div className='acivityform-container'>
-            <h1>New Activity</h1>   
+            <div className='activity-title'>
+                <h1>New Activity</h1>   
+            </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <select {...register("activityType",{required: true})}>
                     <option value="">activity type</option>
                     <option value="cardio">cardio</option>
                     <option value="weight">weight</option>
                 </select>
-                {errors.activityType && <p>Please chhoose your activity types</p>}
+                {errors.activityType && <p>Please choose your activity types</p>}
                 <br />
                 <select {...register(("activity"))}>                                                                                                                                                            
                     <option value="">activity</option>
@@ -29,7 +32,7 @@ export const NewActivityForm = () => {
                     <option value="walk">walk</option>
                     <option value="hike">hike</option>
                 </select>
-                {errors.activityType && <p>Please chhoose your activity</p>}                                                   
+                {errors.activityType && <p>Please choose your activity</p>}                                                   
                 <br/>
                 <input type="date" {...register("date",{ required: true})}/>
                 {errors.date && <p>Please enter the date</p>}                                                                           
@@ -37,9 +40,9 @@ export const NewActivityForm = () => {
                 <input type="number" placeholder='duration(minutes)'  {...register("duration",{min: {value:0,message: "duration can't be zero"}})}/>
                 <p>{errors.duration?.message}</p>
                 <br/>
-                <textarea placeholder='Comment' {...register("comment")}></textarea>
+                <textarea placeholder='Comment' rows='5' {...register("comment")}></textarea>
                 <br/>
-                <button>Add Activity</button>
+                <button className ='add-activity-btn'>Add Activity</button>
             </form> 
         </div>
     )
