@@ -24,6 +24,8 @@ html, body {
     /* background-color: #f5aabb; */
     background-color: none;
     
+    border: 2px black solid;
+    
 }
 
 .navbar a {
