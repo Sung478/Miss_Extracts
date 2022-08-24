@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axiosInstance from '../../config/axios'
+import './Setting.css'
 
 import { SettingForm } from '../../components/SettingForm/SettingForm'
 import { useNavigate } from 'react-router-dom'
@@ -57,7 +58,7 @@ useEffect(() => {
 }, [])
 
   return (
-    <div className='setting-page'>
+    <div id='setting-page'>
       <NavBar isSignin={true} />
         <SettingForm user={user} isLoading={isLoading} signOut={signout}/>
     </div>

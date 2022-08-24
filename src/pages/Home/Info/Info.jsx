@@ -11,8 +11,8 @@ export default function Info() {
                 <img id="exercisePic" src={exercisePic} />
             </div>
             <div>
-                <h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h1>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
+                <h1>What can we help you?</h1>
+                <h4>We can help you keep track of all your exercises and visualize them, motivate by letiing you set your goal and count ou them!</h4>
             </div>
         </div>
   )

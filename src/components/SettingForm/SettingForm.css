@@ -9,6 +9,7 @@
     align-items: center;
     margin: 10px;
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    background-color: none;
 }
 
 .setting-forms {
@@ -22,7 +23,13 @@
 
 .setting-forms h2 {
     width: 75%;
-    text-align: center;
+    text-align: left;
+    margin: 10px;
+}
+
+.setting-forms h3 {
+    width: 75%;
+    text-align: left;
     margin: 10px;
 }
 
@@ -95,7 +102,8 @@
 }
 
 .setting input {
-    background-color: rgba(216, 215, 215, 0.898);
+    /* background-color: rgba(216, 215, 215, 0.898); */
+    background-color: white;
     width: 328px;
     height: 45px;
     border-radius: 5px;
@@ -105,7 +113,8 @@
 }
 
 .setting button {
-    background-color: #FFF573;
+    /* background-color: #FFF573; */
+    background-color: #EC255A;
     width: 328px;
     height: 45px;
     border-radius: 5px;
@@ -140,7 +149,7 @@
 }
 
 #goal-h2 {
-    width: 100%;
+    width: 94%;
     margin: 10px;
 }
 
