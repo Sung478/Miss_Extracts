@@ -1,7 +1,7 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 
-export default function NavBar({isSignin, isHome}) {
+export default function NavBar({isSignin, isHome, atSignup}) {
 
     let navElements;
     if (isSignin) {
@@ -12,13 +12,20 @@ export default function NavBar({isSignin, isHome}) {
             <Link to='/setting'>Setting</Link>
         ]
     } else {
-        navElements = [
-            <Link to='/signin'>Sign In</Link>
-        ]
+        if(atSignup){
+            navElements = [
+                <Link to='/registration'>Sign Up</Link>
+            ]
+        }
+        else{
+            navElements = [
+                <Link to='/signin'>Sign In</Link>
+            ]
+        }
     }
 
     if (isHome) {
-        navElements.push(<Link to='registration'><p>Get Started</p></Link>)
+        navElements.push(<Link to='/registration'><p>Get Started</p></Link>)
     }
 
     return (
