@@ -21,7 +21,7 @@ export default function Button({reload}) {
     <>
     <button onClick={toggleModal} className="btn-modal button">
       {/* <Link to='/new-activity'><img src={buttonPic} alt="button" /></Link> */}
-      <img src={buttonPic} alt="button" />
+      <img src={buttonPic} alt="button" style={{ backgroundColor: "EC255A"}} />
     </button>
     
     {modal && (

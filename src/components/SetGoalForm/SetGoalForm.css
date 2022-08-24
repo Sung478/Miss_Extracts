@@ -4,7 +4,7 @@ width: 50%;
 height: 720px;
 left: 0px;
 top: 0px;
-background: #FFF573;
+background: #ef6081;
 }
 
 .setGoalPic img {
@@ -25,7 +25,7 @@ background:  #ffffff;
 }
 
 .setGoalForm button {
-    background-color: #FFF573;
+    background-color: #ef6081;
     border: none;
     color: black;
     padding: 15px 32px;

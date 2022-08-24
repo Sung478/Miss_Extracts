@@ -1,11 +1,20 @@
 .pagination {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
+    height: 3rem;
+    margin: 0;
+    margin-bottom: 20px;
+}
+.page-div {
+    margin: 0;
+    padding: 0;
 }
 
 .page-num {
-    padding: 10px;
+    padding: 5px 10px;
     border: lightgray 1px solid;
     border-radius: 5px;
+    margin: 0 3px;
 }
