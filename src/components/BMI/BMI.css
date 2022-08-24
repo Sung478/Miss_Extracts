@@ -3,6 +3,7 @@
     border-radius: 5px;
     /* box-shadow: 5px 5px 10px lightgrey; */
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: white;
     width: 265px;
     padding: 20px 0;
 }
