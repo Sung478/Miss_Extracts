@@ -53,6 +53,7 @@ export default function Dashboard() {
     // const [recentAct, setRecentAct] = useState([]);
 
     const [isUpdated, setIsUpdated] = useState(false);
+    const [dailyStats, setDailyStats] = useState([]);
 
     // const login = async () => {
     //     await axiosInstance.post('/auth/signin', {
@@ -63,6 +64,7 @@ export default function Dashboard() {
     // }
 
     const getActvities = async () => {
+        setIsLoading(true);
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
         console.log(user)
@@ -83,11 +85,39 @@ export default function Dashboard() {
         await axiosInstance.delete(`/user_id/activities/${activityId}`)
         console.log("activity deleted")
     }
+// ============
 
+    const recentCards = user.activities.slice(0, 2);
+
+    const getDailyStats = async () => {
+        setIsLoading(true);
+        const response = await axiosInstance.get("user_id/activities/daily-stats");
+        // console.log(response.data);
+        setDailyStats(response.data);
+        setIsLoading(false);
+      };
+
+
+        // count goal avachieved day
+  let goalAchieved = 0;
+  const getGoalAchieved = () => {
+    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const achievedDays = dailyStats.filter((day) => {
+      if (Date.parse(day._id) >= Date.parse(sevenDaysAgo)) {
+        return day;
+      }
+    });
+    goalAchieved = achievedDays.length;
+    // console.log(achievedDays.length);
+  };
+  getGoalAchieved();
+
+// =============
     useEffect( () => {
         // login()
         getActvities();
         // getRecentAct();
+        getDailyStats();
     }, [isUpdated]);
 
     const reload = () => {
@@ -116,17 +146,17 @@ export default function Dashboard() {
             <div className='dashboard-summary'>
                 <div>
                     <div id='dashboard-goal'>
-                        <Goal inspiration={user.goals.inspiration} weeklyGoal={user.goals.weeklyGoal} doneWeekly={user.doneWeekly} />
+                        <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={user.doneWeekly || 0} goalAchieved={goalAchieved}/>
                         <BMI weight={user.weight} height={user.height} />
                     </div>
-                    <BarChart />
+                    <BarChart dailyStats={dailyStats} loading={isLoading}/>
                 </div>
                 <div id='dashboard-cards'>
                     <div id="dashboard-cards-heading">
                         <img src='/run.png'/>
                         <h3>Recent Activities</h3>
                     </div>
-                    <CardList cards={user.activities} onRemove={onRemove} reload={reload} />
+                    <CardList cards={recentCards} onRemove={onRemove} reload={reload} />
                     <Link to='/activities'>see more ...</Link>
                 </div>
             </div>
