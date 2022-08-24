@@ -9,11 +9,15 @@ export default function SignIn_test() {
 
 
   const onSubmit = async (data) => {
+    try{
     console.log({...data})
     const response = await axiosInstance.post('auth/signin', {...data})
     console.log(response.data)
-    alert('Welcome my friend!')
-    navigate('/dashboard')
+    alert('Welcom my friend! ' + response.data.username)
+    navigate('/dashboard')} catch (e) {
+      console.log(e.response.data)
+      alert(e.response.data)
+    }
   }
 
 
