@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const server = "http://localhost:3000"
+const server = "https://miss-extract-backend.vercel.app"
 
 const axiosInstance = axios.create({
         withCredentials: true,
