@@ -23,7 +23,7 @@ export default function SignIn_test() {
 
   return (
     <div className='SignIn_test'>
-        <NavBar isSignin={false} />
+        <NavBar isSignin={false} atSignin={true}/>
         <SignIn onSubmit={onSubmit}/>
     </div>
   )

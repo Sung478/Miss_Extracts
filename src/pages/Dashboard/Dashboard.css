@@ -1,5 +1,10 @@
 #dashboard {
     display: flex;
+    flex-direction: column;
+}
+
+#dashboard>div {
+    display: flex;
 }
 
 .dashboard-summary {

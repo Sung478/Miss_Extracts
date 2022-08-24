@@ -34,10 +34,11 @@ const navigate = useNavigate();
 //   ).catch(() => console.log('login failed'))
 // }
 
+
 const signout = async () => {
   const response = await axiosInstance.post('/auth/signout')
   console.log(response)
-  checkStatus(false)
+  // setIsSignin(false)
   console.log('Signed out')
   navigate('/home')
   alert('Signed out')

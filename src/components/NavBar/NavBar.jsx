@@ -1,9 +1,9 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 
-export default function NavBar({isSignin, isHome, atSignup}) {
+export default function NavBar({isSignin, isHome, atSignup, atSignin}) {
 
-    let navElements;
+    let navElements = [];
     if (isSignin) {
         navElements = [
             <Link to='/dashboard'>Dashboard</Link>,
@@ -12,14 +12,14 @@ export default function NavBar({isSignin, isHome, atSignup}) {
             <Link to='/setting'>Setting</Link>
         ]
     } else {
-        if(atSignup){
-            navElements = [
-                <Link to='/registration'>Sign Up</Link>
+        if(isHome || atSignup){
+             navElements = [
+                <Link to='/signin'>Sign In</Link>
             ]
         }
-        else{
-            navElements = [
-                <Link to='/signin'>Sign In</Link>
+        else if(atSignin){
+             navElements = [
+                <Link to='/registration'>Sign Up</Link>
             ]
         }
     }
@@ -29,7 +29,7 @@ export default function NavBar({isSignin, isHome, atSignup}) {
     }
 
     return (
-        <div className="navbar">
+        <div className="navbar" style={isHome? { backgroundColor: "#f5aabb"} :  { backgroundColor: "none"}}>
             <Link to='/home' className="logo">
             <img src='/logo.png' alt="logo" />
                 <h1>EXTRACKS</h1>

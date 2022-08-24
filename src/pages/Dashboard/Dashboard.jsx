@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Dashboard.css'
 
@@ -30,7 +30,7 @@ export default function Dashboard() {
             },
             doneWeekly: 4,
             activities: [
-                { 
+                {
                     activityId: '1',
                     activityType: 'cardio',
                     activityName: 'running',
@@ -38,7 +38,7 @@ export default function Dashboard() {
                     duration: 30,
                     comment: 'nice vibe'
                 },
-                { 
+                {
                     activityId: '2',
                     activityType: 'cardio',
                     activityName: 'running',
@@ -64,7 +64,6 @@ export default function Dashboard() {
     // }
 
     const getActvities = async () => {
-        setIsLoading(true);
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
         console.log(user)
@@ -85,7 +84,7 @@ export default function Dashboard() {
         await axiosInstance.delete(`/user_id/activities/${activityId}`)
         console.log("activity deleted")
     }
-// ============
+    // ============
 
     const recentCards = user.activities.slice(0, 2);
 
@@ -95,25 +94,25 @@ export default function Dashboard() {
         // console.log(response.data);
         setDailyStats(response.data);
         setIsLoading(false);
-      };
+    };
 
 
-        // count goal avachieved day
-  let goalAchieved = 0;
-  const getGoalAchieved = () => {
-    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-    const achievedDays = dailyStats.filter((day) => {
-      if (Date.parse(day._id) >= Date.parse(sevenDaysAgo)) {
-        return day;
-      }
-    });
-    goalAchieved = achievedDays.length;
-    // console.log(achievedDays.length);
-  };
-  getGoalAchieved();
+    // count goal avachieved day
+    let goalAchieved = 0;
+    const getGoalAchieved = () => {
+        const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+        const achievedDays = dailyStats.filter((day) => {
+            if (Date.parse(day._id) >= Date.parse(sevenDaysAgo)) {
+                return day;
+            }
+        });
+        goalAchieved = achievedDays.length;
+        // console.log(achievedDays.length);
+    };
+    getGoalAchieved();
 
-// =============
-    useEffect( () => {
+    // =============
+    useEffect(() => {
         // login()
         getActvities();
         // getRecentAct();
@@ -123,41 +122,43 @@ export default function Dashboard() {
     const reload = () => {
         setIsUpdated(!isUpdated)
     }
-    
+
 
     function onRemove(selectedCard) {
         if (confirm("Delete this activity?")) {
-        const newCards = user.activities.filter( activity => {
-            return activity.activityId != selectedCard.activityId
-        })
-        //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
-        const activityId = selectedCard.activityId;
-        deleteActivity(activityId);
-        setUser((prev)=>({...prev, activities: newCards}));
-        alert('activity deleted')
-    } else { alert('activity not delete')}
+            const newCards = user.activities.filter(activity => {
+                return activity.activityId != selectedCard.activityId
+            })
+            //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
+            const activityId = selectedCard.activityId;
+            deleteActivity(activityId);
+            setUser((prev) => ({ ...prev, activities: newCards }));
+            alert('activity deleted')
+        } else { alert('activity not delete') }
     }
 
-    if(isLoading) return 
+    if (isLoading) return
     return (
         <div id='dashboard'>
-             <NavBar isSignin={true} />
-            <div className="dashboard-profile"><Profile user={user} reload={reload}/></div>
-            <div className='dashboard-summary'>
-                <div>
-                    <div id='dashboard-goal'>
-                        <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={user.doneWeekly || 0} goalAchieved={goalAchieved}/>
-                        <BMI weight={user.weight} height={user.height} />
+            <NavBar isSignin={true} />
+            <div>
+                <div className="dashboard-profile"><Profile user={user} reload={reload} /></div>
+                <div className='dashboard-summary'>
+                    <div>
+                        <div id='dashboard-goal'>
+                            <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={user.doneWeekly || 0} goalAchieved={goalAchieved} />
+                            <BMI weight={user.weight} height={user.height} />
+                        </div>
+                        <BarChart dailyStats={dailyStats} loading={isLoading} />
                     </div>
-                    <BarChart dailyStats={dailyStats} loading={isLoading}/>
-                </div>
-                <div id='dashboard-cards'>
-                    <div id="dashboard-cards-heading">
-                        <img src='/run.png'/>
-                        <h3>Recent Activities</h3>
+                    <div id='dashboard-cards'>
+                        <div id="dashboard-cards-heading">
+                            <img src='/run.png' />
+                            <h3>Recent Activities</h3>
+                        </div>
+                        <CardList cards={recentCards} onRemove={onRemove} reload={reload} inDashboard={true}/>
+                        <Link to='/activities'>see more ...</Link>
                     </div>
-                    <CardList cards={recentCards} onRemove={onRemove} reload={reload} />
-                    <Link to='/activities'>see more ...</Link>
                 </div>
             </div>
         </div>
