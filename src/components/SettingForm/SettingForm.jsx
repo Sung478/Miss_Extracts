@@ -70,7 +70,6 @@ export function SettingForm({user, isLoading, signOut, }) {
         await axiosInstance.put('/user_id', {...data});
         navigate('../setting')
         alert('User updated')
-        console.log(user)
     }
 
     
