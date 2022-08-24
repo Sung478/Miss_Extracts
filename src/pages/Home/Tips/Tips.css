@@ -24,3 +24,7 @@
 .tips-card p {
     height: 13rem;
 }
+
+.tips-card a {
+    color: aquamarine;
+}
