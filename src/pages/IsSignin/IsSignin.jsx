@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom'
 import axiosInstance from '../../config/axios'
 
 
-export default function IsSignin({isSignin, checkStatus}) {
+export default function IsSignin({}) {
     const navigate = useNavigate()
+    const [isSignin, setIsSignin] = useState(false)
 
     useEffect(() => {
         axiosInstance.get('/user_id')
             .then(response => {
                 console.clear()
                 console.log(`account: @${response.data.username}`)
-                checkStatus(true)
-            })
+            }).then(() => setIsSignin(true))
             .catch(() => {
                 console.log('no permission, please sign in first')
                 navigate('/signin')

@@ -17,24 +17,19 @@ import { useState } from 'react'
 
 
 function App() {
-  const [isSignin, setIsSignin] = useState(false)
-
-  const checkStatus = (result) =>{
-    setIsSignin(result)
-  }
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/home' element={<Home/>} isSignin={isSignin} />
+          <Route path='/home' element={<Home/>} />
           <Route path='/registration' element={<Registration/>}  />
-          <Route path='/signin' element={<SignIn_test/>}  />
-          <Route path='/' element={<IsSignin checkStatus={checkStatus} />} />
-            <Route path='dashboard' element={<Dashboard/>}  />
+          <Route path='/signin' element={<SignIn_test />}  />
+          <Route path='/' element={<IsSignin />} />
+            <Route path='dashboard' element={<Dashboard/>} />
             <Route path='activities' element={<MyActivities/>}  />
             <Route path='community' element={<Community/>}  />
-            <Route path='setting' element={<Setting checkStatus={checkStatus} />} />
+            <Route path='setting' element={<Setting />} />
             {/* <Route path='setgoal' element={<SetGoal/>}  /> */}
         </Routes>
       </BrowserRouter>
