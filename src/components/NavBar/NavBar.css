@@ -56,21 +56,23 @@ html, body {
 .navbar nav a {
     font-size: 1rem;
     margin-left: 1rem;
+    font-weight: bold;
 }
 
 .navbar nav a:hover {
-    color: darkgray;
+    color: antiquewhite;
 }
 
 .navbar nav a p {
-    background-color: #fff573;
+    background-color: #EC255A;
     padding: 0.75rem;
     border: 0;
     border-radius: 0.5rem;
+    color:antiquewhite;
 }
 
 .navbar nav a p:hover {
-    background-color: black;
+    background-color: palevioletred;
     color: white;
     padding: 0.75rem;
     border: 0;
