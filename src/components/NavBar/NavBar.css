@@ -22,8 +22,12 @@ html, body {
     align-items: center;
     padding: 0 2rem;
     /* background-color: #f5aabb; */
-    background-color: none;
-    
+
+    /* background-color: none; */
+
+    background-color: white !important;
+
+
     border: 2px black solid;
     
 }
