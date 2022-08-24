@@ -1,6 +1,17 @@
+/* * {
+    border: #EC255A 1px solid;
+} */
+
 .registration {
     display: flex;
+    height: 100vh;
+    flex-direction: column;
     background-image: linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%);
+}
+
+.regis-content {
+    display: flex;
+    flex-direction: row;
 }
 
 .regis-form {
@@ -44,9 +55,11 @@
     /* background-color: #FFCBD7; */
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #registration-img img {
-    width: 70%;
+    width: 80%;
+    height: 70%;
 }
 
