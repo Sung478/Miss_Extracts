@@ -1,3 +1,6 @@
+/* *{
+    border: 1px solid red;
+} */
 .home-banner {
     display: flex;
     justify-content: center;
@@ -5,21 +8,39 @@
     background-color: #FFCBD7;
 }
 
-.home-banner h1,h4{
+.home-banner h1 {
+    /* font-family: 'DynaPuff', cursive; */
+    /* font-family: 'Rubik Dirt', cursive; */
     font-family: 'DynaPuff', cursive;
+    font-size: 3rem;
 }
+
+.home-banner h4 {
+    /* font-family: 'DynaPuff', cursive; */
+    /* font-family: 'Rubik Dirt', cursive; */
+    font-size: 1.6rem;
+    /* font-style: italic; */
+}
+
 
 .home-banner div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 50%
 }
 
+.home-banner-left {
+    padding-left: 40px
+}
+
+/* .home-banner-right {
+    width: 40%
+} */
+
 #bannerPicture{
-    width: 500px;
-    height: 500px;
+    width: 80%;
     margin-top: 50px;
     margin-bottom: 50px;
 }

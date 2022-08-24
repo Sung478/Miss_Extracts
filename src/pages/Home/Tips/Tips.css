@@ -1,7 +1,8 @@
 .tips {
     display: flex;
     justify-content: center;
-    background-color: #383B81;
+    background-color: #797df5;
+    /* background-color: #2b2d65; */
     margin: 0;
     width: 100%;
     color: antiquewhite;
@@ -17,4 +18,8 @@
 
 .tips-card h2 {
     text-transform: uppercase;
+}
+
+.tips-card p {
+    height: 13rem;
 }
