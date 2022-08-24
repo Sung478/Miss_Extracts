@@ -5,6 +5,14 @@
     background-color: #FFCBD7;
 }
 
+.home-info h1 {
+    font-family: 'DynaPuff', cursive;
+}
+
+.home-info p {
+    padding: 0 30px;
+}
+
 .home-info div {
     display: flex;
     flex-direction: column;
