@@ -53,7 +53,7 @@ export default function CommunityCard({card, userId, onRemove, reload}) {
                     <p>duration: {card.activities.duration}</p>
                 </div>
                 <div className="card-text">
-                    <p>{card.comment}</p>
+                    <p>{card.activities.comment}</p>
                 </div>
             </div>
     </div>

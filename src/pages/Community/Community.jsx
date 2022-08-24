@@ -84,10 +84,12 @@ export default function Community() {
     return (
         <div id='community'>
              <NavBar isSignin={true} />
-            <div className="community-profile"><Profile user={user} reload={reload}/></div>
-            <div id='community-cards'>
-                <CommunityList cards={currentItems} userId={user.user_id} onRemove={onRemove} reload={reload} />
-                <Pagination pageCount={pageCount} onClick={handlePageClick} />
+             <div>
+                <div className="community-profile"><Profile user={user} reload={reload}/></div>
+                <div id='community-cards'>
+                    <CommunityList cards={currentItems} userId={user.user_id} onRemove={onRemove} reload={reload} />
+                    <Pagination pageCount={pageCount} onClick={handlePageClick} />
+                </div>
             </div>
         </div>
     )

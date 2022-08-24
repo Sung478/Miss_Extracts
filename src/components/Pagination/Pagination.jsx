@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate'
 export default function Pagination( {onClick, pageCount} ) {
 
   return (
-    <div>
+    <div className='page-div'>
         <ReactPaginate
             breakLabel="..."
             nextLabel=">"
