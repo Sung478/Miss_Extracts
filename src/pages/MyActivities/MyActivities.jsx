@@ -144,10 +144,12 @@ export default function MyActivities() {
     return (
         <div id='myActivities'>
             <NavBar isSignin={true}/>
-            <div className="myActivities-profile"><Profile user={user} reload={reload}/></div>
-            <div id='myActivities-cards'>
-                <CardList cards={currentItems} onRemove={onRemove} reload={reload} />
-                <Pagination pageCount={pageCount} onClick={handlePageClick} />
+            <div>
+                <div className="myActivities-profile"><Profile user={user} reload={reload}/></div>
+                <div id='myActivities-cards'>
+                    <CardList cards={currentItems} onRemove={onRemove} reload={reload} />
+                    <Pagination pageCount={pageCount} onClick={handlePageClick} />
+                </div>
             </div>
         </div>
     )
