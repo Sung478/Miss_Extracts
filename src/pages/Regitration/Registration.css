@@ -1,11 +1,22 @@
+/* * {
+    border: #EC255A 1px solid;
+} */
+
 .registration {
     display: flex;
+    height: 100vh;
+    flex-direction: column;
     background-image: linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%);
+}
+
+.regis-content {
+    display: flex;
+    flex-direction: row;
 }
 
 .regis-form {
     padding-top: 0.5rem;
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: center;
 }
@@ -39,14 +50,17 @@
 }
 
 #registration-img {
-    width: 50%;
+    width: 40%;
     height: 720px;
     /* background-color: #FFCBD7; */
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-right: 50px;
 }
 
 #registration-img img {
-    width: 70%;
+    width: 100%;
+    height: 70%;
 }
 
