@@ -67,6 +67,7 @@ export function SettingForm({user, isLoading, signOut, toggleModal}) {
         delete data.weightGoal
         delete data.inspiration
         data.goals = goals
+        data.piture = user.picture
         console.log(data);
         await axiosInstance.put('/user_id', {...data});
         navigate('../setting')

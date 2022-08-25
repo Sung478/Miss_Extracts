@@ -46,8 +46,8 @@ export default function Setting({ checkStatus }) {
     setUser((prev) => ({
       ...prev, picture: selectedPic
     }))
-    await axiosInstance.put('/user_id',  user)
-    alert('Picture Updated')
+    // await axiosInstance.put('/user_id',  user)
+    // alert('Picture Updated')
   }
 
   const selection = (selected) => {
