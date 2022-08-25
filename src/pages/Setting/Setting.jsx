@@ -42,11 +42,12 @@ export default function Setting({ checkStatus }) {
     document.body.classList.remove('active-modal')
   }
 
-  const updatePicture = (selectedPic) => {
+  const updatePicture = async (selectedPic) => {
     setUser((prev) => ({
       ...prev, picture: selectedPic
-    })).then(()=> axiosInstance.put('/user_id',  user))
-    .then(() => alert('Picture Updated'))
+    }))
+    await axiosInstance.put('/user_id',  user)
+    alert('Picture Updated')
   }
 
   const selection = (selected) => {

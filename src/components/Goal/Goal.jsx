@@ -11,7 +11,7 @@ export default function Goal(props) {
             <h3>Goal</h3>
         </div>
         <div className="goal-container">
-            <p><strong style={{ margin: 0}}>Inspiration:</strong> {props.inspiration}</p>
+            <p><strong style={{ margin: 0}}>Inspiration:</strong> {props.inspiration || "-"}</p>
             <div>
                 <h1>{props.goalAchieved || "0"}</h1>
                 <p>out of {props.weeklyGoal} days</p>

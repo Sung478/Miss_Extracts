@@ -113,11 +113,11 @@ export function SettingForm({user, isLoading, signOut, toggleModal}) {
                     <h2 id='goal-h2'>Update your goal</h2>
                     <div className='goal-form'>
                         <label>weekly goal</label>
-                        <input type='number' defaultValue={ user.goals.weeklyGoal || null} placeholder='days per week' {...register('weeklyGoal')}/>
+                        <input type='number' defaultValue={ user.goals.weeklyGoal || "-"} placeholder='days per week' {...register('weeklyGoal')}/>
                         <label>weight</label>
-                        <input type='number' defaultValue={ user.goals.weightGoal || null} placeholder='goal weight' {...register('weightGoal')}/>
+                        <input type='number' defaultValue={ user.goals.weightGoal || "-"} placeholder='goal weight' {...register('weightGoal')}/>
                         <label>inspiration</label>
-                        <input type='text' defaultValue={ user.goals.inspiration || null} placeholder='inspiration' {...register('inspiration')}/>
+                        <input type='text' defaultValue={ user.goals.inspiration || "-"} placeholder='inspiration' {...register('inspiration')}/>
                     </div>
                 </div>
             </div>

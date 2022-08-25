@@ -57,7 +57,7 @@ export default function SetGoalForm() {
             {...register("Inspirations", { required: true })}
           />
           {errors?.Inspirations?.type === "required" && (
-            <p>Inspirations is required</p>
+            <p>Inspiration is required</p>
           )}
           <br></br>
           <button>Set up</button>
