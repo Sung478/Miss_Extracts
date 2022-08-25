@@ -81,7 +81,7 @@ export function SettingForm({user, isLoading, signOut, toggleModal}) {
         <div className='setting-forms'>
             <div id='info-container' >
                 <div className='picture-name'>
-                    <div className='profile-pic' onMouseEnter={showPicUpdate} onMouseLeave={hidePicUpdate}>
+                    <div className='profile-pic' /* onMouseEnter={showPicUpdate} onMouseLeave={hidePicUpdate}*/>
                         <img onClick={toggleModal} src={ user.picture || '/profile.png'}/>
                         {/* <input id='update-profile' type='file' />
                         {picUpdate && <label htmlFor='update-profile'>Choose Photo</label>} */}
