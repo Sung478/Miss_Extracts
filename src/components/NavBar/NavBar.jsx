@@ -6,10 +6,10 @@ export default function NavBar({isSignin, isHome, atSignup, atSignin}) {
     let navElements = [];
     if (isSignin) {
         navElements = [
-            <Link to='/user/dashboard'>Dashboard</Link>,
-            <Link to='/user/activities'>My Activity</Link>,
-            <Link to='/user/community'>Community</Link>,
-            <Link to='/user/setting'>Setting</Link>
+            <Link to='/user-dashboard'>Dashboard</Link>,
+            <Link to='/user-activities'>My Activity</Link>,
+            <Link to='/user-community'>Community</Link>,
+            <Link to='/user-setting'>Setting</Link>
         ]
     } else {
         if(isHome || atSignup){

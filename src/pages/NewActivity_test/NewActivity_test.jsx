@@ -25,7 +25,7 @@ export default function NewActivity_Test() {
     const response = await axiosInstance.put('/user_id/activities/', {...data})
     console.log(response.data)
     alert('Activity added')
-    navigate('/user/dashboard')
+    navigate('/user-dashboard')
   }
     
   return (

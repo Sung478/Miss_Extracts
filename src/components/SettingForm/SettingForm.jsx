@@ -70,7 +70,7 @@ export function SettingForm({user, isLoading, signOut, toggleModal}) {
         data.piture = user.picture
         console.log(data);
         await axiosInstance.put('/user_id', {...data});
-        navigate('/user/setting')
+        navigate('/user-setting')
         alert('User updated')
     }
 
