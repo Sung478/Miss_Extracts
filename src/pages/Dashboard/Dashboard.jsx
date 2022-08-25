@@ -10,6 +10,8 @@ import Profile from '../../components/Profile/Profile'
 import CardList from "../../components/CartList/CardList"
 import NavBar from "../../components/NavBar/NavBar";
 import axiosInstance from "../../config/axios";
+import NewActivityForm from "../../components/NewActivityForm/NewActivityForm";
+import UpdateActivityForm from "../../components/UpdateActivityForm/UpdateActivityForm";
 
 export default function Dashboard() {
     const [isLoading, setIsLoading] = useState(true);
@@ -54,6 +56,32 @@ export default function Dashboard() {
 
     const [isUpdated, setIsUpdated] = useState(false);
     const [dailyStats, setDailyStats] = useState([]);
+    const [modal,setModal] = useState(false);
+    const [modalU,setModalU] = useState(false);
+    const [activity, setActivity] = useState({})
+    
+    const toggleModal = () =>{
+      setModal(!modal);
+    }
+
+    if(modal) {
+        document.body.classList.add('active-modal')
+      } else {
+        document.body.classList.remove('active-modal')
+      }
+
+      if(modalU) {
+        document.body.classList.add('active-modal')
+    } else {
+        document.body.classList.remove('active-modal')
+    }
+
+        // const [activity, setActivity] = useState({})
+    const toggleModalU = () =>{
+            // console.log(selectedCard)
+        setModalU(!modalU);
+        //   setActivity(selectedCard);
+    }
 
     // const login = async () => {
     //     await axiosInstance.post('/auth/signin', {
@@ -142,22 +170,38 @@ export default function Dashboard() {
         <div id='dashboard'>
             <NavBar isSignin={true} />
             <div>
-                <div className="dashboard-profile"><Profile user={user} reload={reload} /></div>
+                <div className="dashboard-profile"><Profile user={user} reload={reload} toggleModal={toggleModal} /></div>
+                    {modal && (
+                        <div className="modal">
+                            <div onClick={toggleModal} className="overlay"></div>
+                            <div className="modal-content">
+                                <NewActivityForm reload={reload} toggleModal={toggleModal} />
+                            </div>
+                        </div>
+                    )}
                 <div className='dashboard-summary'>
                     <div>
                         <div id='dashboard-goal'>
                             <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={user.doneWeekly || 0} goalAchieved={goalAchieved} />
                             <BMI weight={user.weight} height={user.height} />
                         </div>
-                        <BarChart dailyStats={dailyStats} loading={isLoading} />
+                        {!modal && <BarChart dailyStats={dailyStats} loading={isLoading} />}
                     </div>
                     <div id='dashboard-cards'>
                         <div id="dashboard-cards-heading">
                             <img src='/run.png' />
                             <h3>Recent Activities</h3>
                         </div>
-                        <CardList cards={recentCards} onRemove={onRemove} reload={reload} inDashboard={true}/>
-                        <Link to='/activities'>see more ...</Link>
+                        <CardList cards={recentCards} onRemove={onRemove} reload={reload} inDashboard={true} setActivity={setActivity} toggleModalU={toggleModalU} />
+                            {modalU && (
+                            <div className="modal">
+                                <div onClick={toggleModalU} className="overlay"></div>
+                                <div className="modal-content">
+                                <UpdateActivityForm toggleModal={toggleModalU} reload={reload} activity={activity}/>
+                                </div>
+                            </div>
+                             )}
+                        <Link to='/activities'><a id="seemore">see more ...</a></Link>
                     </div>
                 </div>
             </div>

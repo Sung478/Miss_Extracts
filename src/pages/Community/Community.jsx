@@ -6,6 +6,8 @@ import CommunityList from "../../components/CommunityCard/CommunityList";
 import axiosInstance from "../../config/axios";
 import Pagination from "../../components/Pagination/Pagination";
 import NavBar from "../../components/NavBar/NavBar";
+import UpdateActivityForm from "../../components/UpdateActivityForm/UpdateActivityForm";
+import NewActivityForm from "../../components/NewActivityForm/NewActivityForm";
 
 export default function Community() {
     const [isUpdated, setIsUpdated] = useState(false);
@@ -24,6 +26,33 @@ export default function Community() {
     //     }).then(() => console.log("login success")
     //     ).catch(() => console.log('login failed'))
     // }
+
+    const [modal,setModal] = useState(false);
+    const [modalU,setModalU] = useState(false);
+    const [activity, setActivity] = useState({})
+    
+    const toggleModal = () =>{
+      setModal(!modal);
+    }
+
+    if(modal) {
+        document.body.classList.add('active-modal')
+      } else {
+        document.body.classList.remove('active-modal')
+      }
+
+      if(modalU) {
+        document.body.classList.add('active-modal')
+    } else {
+        document.body.classList.remove('active-modal')
+    }
+
+        // const [activity, setActivity] = useState({})
+    const toggleModalU = () =>{
+            // console.log(selectedCard)
+        setModalU(!modalU);
+        //   setActivity(selectedCard);
+    }
 
     const getUer = async() => {
         const response = await axiosInstance.get('/user_id')
@@ -85,10 +114,26 @@ export default function Community() {
         <div id='community'>
              <NavBar isSignin={true} />
              <div>
-                <div className="community-profile"><Profile user={user} reload={reload}/></div>
+                <div className="community-profile"><Profile user={user} reload={reload} toggleModal={toggleModal}/></div>
                 <div id='community-cards'>
-                    <CommunityList cards={currentItems} userId={user.user_id} onRemove={onRemove} reload={reload} />
+                    <CommunityList cards={currentItems} userId={user.user_id} onRemove={onRemove} reload={reload} setActivity={setActivity} toggleModalU={toggleModalU}/>
                     <Pagination pageCount={pageCount} onClick={handlePageClick} />
+                    {modal && (
+                        <div className="modal">
+                            <div onClick={toggleModal} className="overlay"></div>
+                            <div className="modal-content">
+                                <NewActivityForm reload={reload} toggleModal={toggleModal} />
+                            </div>
+                        </div>
+                    )}
+                    {modalU && (
+                            <div className="modal">
+                                <div onClick={toggleModalU} className="overlay"></div>
+                                <div className="modal-content">
+                                <UpdateActivityForm toggleModal={toggleModalU} reload={reload} activity={activity}/>
+                                </div>
+                            </div>
+                             )}
                 </div>
             </div>
         </div>

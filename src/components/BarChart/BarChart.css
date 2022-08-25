@@ -1,0 +1,11 @@
+/* .bar-con {
+    background-color: white;
+    border: 1px solid red;
+} */
+
+
+.container-fluid {
+    /* border: 1px solid red; */
+    margin-left: 10px;
+    padding-top: 30px;
+}

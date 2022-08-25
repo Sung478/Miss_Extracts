@@ -1,7 +1,7 @@
 import './CardList.css'
 import Card from '../Card/Card';
 
-export default function CardList({cards, onRemove, reload, inDashboard}) {
+export default function CardList({cards, onRemove, reload, inDashboard, toggleModalU, setActivity}) {
 
   // const end = cards.length-1
   // const cardsRe = cards.slice(3, end)
@@ -15,6 +15,8 @@ export default function CardList({cards, onRemove, reload, inDashboard}) {
                   key={card.activityId}
                   onRemove={onRemove}
                   reload={reload}
+                  toggleModalU={toggleModalU}
+                  setActivity={setActivity}
                   />
             })
         }

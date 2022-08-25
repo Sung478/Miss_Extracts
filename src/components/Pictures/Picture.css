@@ -1,0 +1,15 @@
+.Picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Picture div {
+    display: flex;
+    justify-content: center;
+}
+
+.Picture img {
+    width: 6rem;
+    margin: 5px;
+}

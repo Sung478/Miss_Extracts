@@ -3,15 +3,14 @@ import './CommunityCard.css'
 
 import UpdateActivityForm from '../UpdateActivityForm/UpdateActivityForm';
 
-export default function CommunityCard({card, userId, onRemove, reload}) {
+export default function CommunityCard({card, userId, onRemove, reload, toggleModalU, setActivity}) {
     const [modal,setModal] = useState(false);
     const [ myActivity, setMyactivity] = useState(false)
 
-    const toggleModal = () =>{
-      // console.log(selectedCard)
-    setModal(!modal);
-  //   setActivity(selectedCard);
-  }
+  const getActivity = () => {
+    setActivity(card.activities)
+    toggleModalU()
+}
 
     const removeCard = () => {
         onRemove(card)
@@ -34,16 +33,8 @@ export default function CommunityCard({card, userId, onRemove, reload}) {
                 <p>{new Date(card.activities.date).toLocaleDateString()}</p>
                { myActivity ? (<div>
                     <a onClick={removeCard}><img src='/remove.png' alt="remove"/></a>
-                    <a><img onClick={toggleModal} src='/edit.png' alt="edit"/></a>
+                    <a><img onClick={getActivity} src='/edit.png' alt="edit"/></a>
                 </div>) : null }
-                {modal && (
-                        <div className="modal">
-                            <div onClick={toggleModal} className="overlay"></div>
-                            <div className="modal-content">
-                            <UpdateActivityForm  toggleModal={toggleModal} reload={reload} activity={card.activities}/>
-                            </div>
-                        </div>
-                    )}
             </div>
             <div className="card-body">
                 <img src='/profile.png' alt='profile'/>

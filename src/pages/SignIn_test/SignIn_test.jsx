@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import SignIn from '../../components/SignIn/SignIn'
 import axiosInstance from '../../config/axios'
+import './SignIn_test.css'
 
 export default function SignIn_test() {
     const navigate = useNavigate()

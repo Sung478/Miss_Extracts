@@ -9,6 +9,10 @@
     /* padding-top: 150px; */
 }
 
+#profilePic {
+    height: 10rem;
+}
+
 .nameProfile, .profileDetails {
     color: #000;
     margin: 0;
@@ -24,6 +28,7 @@
     color: #1E1E1E;
     font-size: 14px;
     margin: 0;
+    font-weight: bold;
 }
 
 .nameProfile {
@@ -32,24 +37,24 @@
 }
 
 .name {
-    margin: 0;
+    margin: 0.5;
     padding-top: 20px;
 }
 
 .birthDay {
-    margin: 0;
+    margin: 0.5;
 }
 
 .age {
-    margin: 0;
+    margin:0.5;
 }
 
 .weigth {
-    margin: 0;
+    margin: 0.5;
 }
 
 .height {
-    margin: 0;
+    margin: 0.5;
 }
 
 .BMI {
@@ -58,3 +63,4 @@
     padding-left: 120px;
     padding-right: 120px;
 }
+

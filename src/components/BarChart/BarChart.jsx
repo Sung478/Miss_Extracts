@@ -199,9 +199,10 @@
 
 import Chart from "react-apexcharts";
 import React, { useState, useEffect } from "react";
+import './BarChart.css'
 
 const BarChart = ({ dailyStats, loading }) => {
-  //if (loading) return <h2>Loading..</h2>
+  // if (loading) return <h2>Loading..</h2>
 
   const [trackingName, setTrackingName] = useState([]);
   const [trackingValue, setTrackingValue] = useState([]);
@@ -278,6 +279,7 @@ const BarChart = ({ dailyStats, loading }) => {
     getWeeklyStats()
   }, [])
 
+  //  if (loading) return <h2>Loading..</h2>
   return (
     <React.Fragment>
       <div className="container-fluid mb-5">
@@ -301,12 +303,12 @@ const BarChart = ({ dailyStats, loading }) => {
             },
             title: {
               text: "",
-              style: { fontSize: 30, fontFamily: 'Space Grotesk' },
+              style: { fontSize: 30, fontFamily: 'Inter, Avenir, Helvetica, Arial, sans-serif;' },
             },
 
             subtitle: {
               text: "",
-              style: { fontSize: 18, fontFamily: 'Space Grotesk'},
+              style: { fontSize: 18, fontFamily: 'Inter, Avenir, Helvetica, Arial, sans-serif;'},
             },
 
             colors: ["#000"],  //สีกราฟแท่ง 
@@ -317,7 +319,7 @@ const BarChart = ({ dailyStats, loading }) => {
               categories: trackingName,
               title: {
                 text: "Day per week",
-                style: { color: "#000", fontSize: 17, fontFamily: 'Space Grotesk' },  //สีชื่อแกน x
+                style: { color: "#000", fontSize: 17, fontFamily: 'Inter, Avenir, Helvetica, Arial, sans-serif;' , fontWeight : "bold" },  //สีชื่อแกน x
               },
             },
 
@@ -330,7 +332,7 @@ const BarChart = ({ dailyStats, loading }) => {
               },
               title: {
                 text: "Time (minute)",
-                style: { color: "#000", fontSize: 17, fontFamily: 'Space Grotesk' },  //สีแกน y
+                style: { color: "#000", fontSize: 17, fontFamily: 'Inter, Avenir, Helvetica, Arial, sans-serif;' , fontWeight : "bold" },  //สีแกน y
               },
             },
 

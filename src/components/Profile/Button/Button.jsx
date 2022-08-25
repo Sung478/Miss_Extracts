@@ -5,17 +5,8 @@ import "./Button.css";
 
 import NewActivityForm from "../../NewActivityForm/NewActivityForm";
 
-export default function Button({reload}) {
-  const [modal,setModal] = useState(false);
-  const toggleModal = () =>{
-    setModal(!modal);
-  }
+export default function Button({reload, toggleModal}) {
 
-  if(modal) {
-    document.body.classList.add('active-modal')
-  } else {
-    document.body.classList.remove('active-modal')
-  }
 
   return(
     <>
@@ -24,14 +15,7 @@ export default function Button({reload}) {
       <img src={buttonPic} alt="button" style={{ backgroundColor: "EC255A"}} />
     </button>
     
-    {modal && (
-      <div className="modal">
-        <div onClick={toggleModal} className="overlay"></div>
-        <div className="modal-content">
-          <NewActivityForm reload={reload} toggleModal={toggleModal} />
-        </div>
-      </div>
-    )}
+
     </>
     )
 

@@ -23,7 +23,7 @@
 
 .setting-forms h2 {
     width: 75%;
-    text-align: left;
+    text-align: center;
     margin: 10px;
 }
 
@@ -36,7 +36,7 @@
 /* #name-head {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 } */
 
 .picture-name img {
@@ -151,5 +151,6 @@
 #goal-h2 {
     width: 94%;
     margin: 10px;
+    text-align: center;
 }
 

@@ -6,6 +6,8 @@ import CardList from "../../components/CartList/CardList";
 import Pagination from "../../components/Pagination/Pagination";
 import axiosInstance from "../../config/axios";
 import NavBar from "../../components/NavBar/NavBar";
+import UpdateActivityForm from "../../components/UpdateActivityForm/UpdateActivityForm";
+import NewActivityForm from "../../components/NewActivityForm/NewActivityForm";
 
 export default function MyActivities() {
     const [isLoading, setIsLoading] = useState(true);
@@ -85,6 +87,33 @@ export default function MyActivities() {
 
     const [isUpdated, setIsUpdated] = useState(false);
 
+    const [modal,setModal] = useState(false);
+    const [modalU,setModalU] = useState(false);
+    const [activity, setActivity] = useState({})
+    
+    const toggleModal = () =>{
+      setModal(!modal);
+    }
+
+    if(modal) {
+        document.body.classList.add('active-modal')
+      } else {
+        document.body.classList.remove('active-modal')
+      }
+
+      if(modalU) {
+        document.body.classList.add('active-modal')
+    } else {
+        document.body.classList.remove('active-modal')
+    }
+
+        // const [activity, setActivity] = useState({})
+    const toggleModalU = () =>{
+            // console.log(selectedCard)
+        setModalU(!modalU);
+        //   setActivity(selectedCard);
+    }
+
     // backend connection
     // const login = async () => {
     //     await axiosInstance.post('/auth/signin', {
@@ -145,10 +174,26 @@ export default function MyActivities() {
         <div id='myActivities'>
             <NavBar isSignin={true}/>
             <div>
-                <div className="myActivities-profile"><Profile user={user} reload={reload}/></div>
+                <div className="myActivities-profile"><Profile user={user} reload={reload} toggleModal={toggleModal}/></div>
                 <div id='myActivities-cards'>
-                    <CardList cards={currentItems} onRemove={onRemove} reload={reload} />
+                    <CardList cards={currentItems} onRemove={onRemove} reload={reload} setActivity={setActivity} toggleModalU={toggleModalU}/>
                     <Pagination pageCount={pageCount} onClick={handlePageClick} />
+                    {modal && (
+                        <div className="modal">
+                            <div onClick={toggleModal} className="overlay"></div>
+                            <div className="modal-content">
+                                <NewActivityForm reload={reload} toggleModal={toggleModal} />
+                            </div>
+                        </div>
+                    )}
+                    {modalU && (
+                            <div className="modal">
+                                <div onClick={toggleModalU} className="overlay"></div>
+                                <div className="modal-content">
+                                <UpdateActivityForm toggleModal={toggleModalU} reload={reload} activity={activity}/>
+                                </div>
+                            </div>
+                             )}
                 </div>
             </div>
         </div>

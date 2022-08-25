@@ -22,12 +22,33 @@
 }
 
 
+/* .sign-container button {
+    background-color: #EC255A;
+    height: 3rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    color: antiquewhite;
+    width: 200px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 1rem;
+} */
+
+
 #register-button {
     background-color: #EC255A;
     height: 3rem;
     margin-top: 2rem;
     cursor: pointer;
     color: antiquewhite;
+    width: 200px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+
+#register-button:hover{
+    background-color: palevioletred;
 }
 
 .regis-form input {

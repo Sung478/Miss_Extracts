@@ -7,9 +7,10 @@ import './SettingForm.css';
 const picture = 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007'
 
 
-export function SettingForm({user, isLoading, signOut, }) {
+export function SettingForm({user, isLoading, signOut, toggleModal}) {
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [picUpdate, setPicUpdate] = useState(false);
+    
 
 
     // user prototype
@@ -81,9 +82,9 @@ export function SettingForm({user, isLoading, signOut, }) {
             <div id='info-container' >
                 <div className='picture-name'>
                     <div className='profile-pic' onMouseEnter={showPicUpdate} onMouseLeave={hidePicUpdate}>
-                        <img src='/profile.png'/>
-                        <input id='update-profile' type='file' />
-                        {picUpdate && <label htmlFor='update-profile'>Choose Photo</label>}
+                        <img onClick={toggleModal} src={ user.picture || '/profile.png'}/>
+                        {/* <input id='update-profile' type='file' />
+                        {picUpdate && <label htmlFor='update-profile'>Choose Photo</label>} */}
                     </div>
                     <div id='name-head'>
                         <h2 id='name-top'>{user.name}</h2>
@@ -94,7 +95,7 @@ export function SettingForm({user, isLoading, signOut, }) {
                 <div className='personal-infomation'>
                     <input type='text' defaultValue={user.username} placeholder='username' {...register('username', {required: true})} />
                     {errors.username && <span>Username is required</span>}
-                    <input type='password' defaultValue={user.password} placeholder='password' {...register('password', {required: false, pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/})}/>
+                    <input type='password' defaultValue={user.password} placeholder='password' {...register('password', {required: false, minLength: 8, maxLength: 16 /* pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/*/ })}/>
                     {errors.password && <span>Passwaord shoud have uppercase, lowercase and number, and is at least 8 characters long</span>}
                     <input type='text' defaultValue={user.name} placeholder='name' {...register('name', {required: true, })}/>
                     {errors.name && <span>Name is required</span>}

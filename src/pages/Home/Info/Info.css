@@ -5,19 +5,21 @@
     background-color: #FFCBD7;
 }
 
-.home-info h1 {
-    font-family: 'DynaPuff', cursive;
-}
-
-.home-info p {
-    padding: 0 30px;
-}
-
 .home-info div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 50%;
+}
+
+.home-info h1 {
+    font-family: 'DynaPuff', cursive;
+    font-size: 3rem;
+}
+
+.home-info h4 {
+    font-size: 1rem;
+    margin: 0 30px;
 }
 
 /* style เหมือน home เลยแต่เปลี่ยนชื่อ class เฉยๆ */
