@@ -10,7 +10,7 @@ export default function Profile({user, reload, toggleModal}) {
   return (
     <div className="profile">
       <Box>
-        <img id ="profilePic" src={user.picture || '/picProile'} alt="pic" />
+        <img id ="profilePic" src={user.picture || '/profile.png'} alt="pic" />
         <h1 className="nameProfile">{user.name || '-'}</h1>
         <p className="userName">{'@'+ user.username }</p>
         <div className="profileDetails">

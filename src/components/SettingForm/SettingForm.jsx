@@ -4,12 +4,12 @@ import { appendErrors, useForm } from 'react-hook-form';
 import axiosInstance from '../../config/axios';
 import './SettingForm.css';
 
-const picture = 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007'
+// const picture = 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007'
 
 
 export function SettingForm({user, isLoading, signOut, toggleModal}) {
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
-    const [picUpdate, setPicUpdate] = useState(false);
+    // const [picUpdate, setPicUpdate] = useState(false);
     
 
 
@@ -48,13 +48,13 @@ export function SettingForm({user, isLoading, signOut, toggleModal}) {
 
     const navigate = useNavigate();
 
-    const showPicUpdate = () => {
-       setPicUpdate(true);
-    }
+    // const showPicUpdate = () => {
+    //    setPicUpdate(true);
+    // }
 
-    const hidePicUpdate = () => {
-        setPicUpdate(false);
-     }
+    // const hidePicUpdate = () => {
+    //     setPicUpdate(false);
+    //  }
 
     const onSummit = async (data) => {
         console.log(data.weeklyGoal)
