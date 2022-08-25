@@ -36,7 +36,7 @@ const getActvities = async () => {
     const response = await axiosInstance.put('/user_id/activities/', {...data})
     console.log(response.data)
     alert('Activity added')
-    navigate('../dashboard')
+    navigate('/user/dashboard')
   }
   
   if(isLoading) return <h3>Loading...</h3>

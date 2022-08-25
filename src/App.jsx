@@ -22,10 +22,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/home' element={<Home/>} />
+          <Route path='/' element={<Home/>} />
           <Route path='/registration' element={<Registration/>}  />
           <Route path='/signin' element={<SignIn_test />}  />
-          <Route path='/' element={<IsSignin />} />
+          <Route path='/user' element={<IsSignin />} />
             <Route path='dashboard' element={<Dashboard/>} />
             <Route path='activities' element={<MyActivities/>}  />
             <Route path='community' element={<Community/>}  />

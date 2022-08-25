@@ -22,7 +22,7 @@ export default function RegistrationForm() {
       await axiosInstance.post('/auth/signup', { ...data, picture: '/cyborg-id-1.png' })
       console.log(data);
       reset();
-      navigate('../home');
+      navigate('/signin');
     } catch (e) { console.log(e) }
     // เปลี่ยน navigate ไป signin ตอน page signin เสร็จ
   }
