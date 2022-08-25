@@ -13,6 +13,7 @@ import Registration from './pages/Regitration/Registration'
 import SignIn_test from './pages/SignIn_test/SignIn_test'
 import IsSignin from './pages/IsSignin/IsSignin'
 import { useState } from 'react'
+import NotFound from './pages/Notfound'
 
 
 
@@ -31,6 +32,7 @@ function App() {
             <Route path='community' element={<Community/>}  />
             <Route path='setting' element={<Setting />} />
             {/* <Route path='setgoal' element={<SetGoal/>}  /> */}
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       </BrowserRouter>
     </div>
