@@ -122,7 +122,7 @@ export default function MyActivities() {
     }
 
     if(isLoading) return ( 
-        <div style={{backgroundImage: "linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%)"}} >
+        <div style={{backgroundImage: "linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%)" , height: "100vh" }} >
             <NavBar isSignin={true} />
             <h3>Loading...</h3>
         </div>
