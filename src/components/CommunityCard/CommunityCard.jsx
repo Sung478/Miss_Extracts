@@ -27,10 +27,6 @@ export default function CommunityCard({card, userId, onRemove, reload, toggleMod
 } else {
     document.body.classList.remove('active-modal')
 }
-
-if(card){
-  reload()
-}
   
 
 return (
