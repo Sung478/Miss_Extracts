@@ -15,7 +15,25 @@ import UpdateActivityForm from "../../components/UpdateActivityForm/UpdateActivi
 
 export default function Dashboard() {
     const [isLoading, setIsLoading] = useState(true);
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(
+        {
+            name: '',
+            username: '',
+            email: '',
+            password: '',
+            profilePic: '',
+            birth: '',
+            height: 0,
+            weight: 0,
+            goal: {
+                weeklyGoal: 0,
+                weightGoal: 0,
+                inspiration: "",
+            },
+            doneWeekly: 4,
+            activities: []
+        }
+    )
 
     // const [recentAct, setRecentAct] = useState([]);
 
