@@ -27,9 +27,13 @@ export default function CommunityCard({card, userId, onRemove, reload, toggleMod
 } else {
     document.body.classList.remove('active-modal')
 }
+
+if(card){
+  reload()
+}
   
-reload()
-  return (
+
+return (
     <div className='communityCard'>
             <div className='card-head'>
                 <p>{new Date(card.activities.date).toLocaleDateString()}</p>
