@@ -40,10 +40,18 @@ export default function MyActivities() {
     const [modal,setModal] = useState(false);
     const [modalU,setModalU] = useState(false);
     const [activity, setActivity] = useState({})
+    const [activities, setActivities] = useState([])
+
+    const getUser = async () => {
+        setIsLoading(true)
+        const response = await axiosInstance.get('/user_id')
+        setUser(response.data)
+        setIsLoading(false)
+    }
 
     const getActvities = async () => {
         setIsLoading(true)
-        const response = await axiosInstance.get('/user_id')
+        const response = await axiosInstance.get('/user_id/activities')
         setUser(response.data)
         setIsLoading(false)
     }
@@ -95,24 +103,24 @@ export default function MyActivities() {
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        setCurrentItems(user.activities.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(user.activities.length / itemsPerPage));
+        setCurrentItems(activities.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(activities.length / itemsPerPage));
     }, [itemOffset, itemsPerPage, user, isUpdated]);
 
     const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % user.activities.length;
+        const newOffset = (event.selected * itemsPerPage) % activities.length;
         setItemOffset(newOffset);
     } 
 
     function onRemove(selectedCard) {
         if (confirm("Delete this activity?")) {
-            const newCards = user.activities.filter( activity => {
+            const newCards = activities.filter( activity => {
                 return activity.activityId != selectedCard.activityId
             })
             //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
             const activityId = selectedCard.activityId;
             deleteActivity(activityId);
-            setUser((prev)=>({...prev, activities: newCards}));
+            setActivities(newCards);
             alert('activity deleted')
         } else { alert('activity not delete')}
     }
