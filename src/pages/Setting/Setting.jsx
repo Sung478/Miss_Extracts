@@ -34,7 +34,7 @@ export default function Setting({ checkStatus }) {
 
   const updatePicture = async (selectedPic) => {
     console.log(selectedPic)
-    await setUser((prev) => ({
+    setUser((prev) => ({
       ...prev, picture: selectedPic
     }))
     console.log(user)
@@ -64,7 +64,7 @@ export default function Setting({ checkStatus }) {
     alert('Signed out')
   }
 
-  const getActvities = async () => {
+  const getUser = async () => {
     setIsLoading(true)
     const response = await axiosInstance.get('/user_id')
     setUser(response.data)
@@ -73,7 +73,7 @@ export default function Setting({ checkStatus }) {
 
   useEffect(() => {
     // login();
-    getActvities();
+    getUser();
   }, [])
 
   return (
