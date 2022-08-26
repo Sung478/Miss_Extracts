@@ -30,7 +30,7 @@ export default function NavBar({isSignin, isHome, atSignup, atSignin}) {
 
     return (
         <div className="navbar" style={isHome? { backgroundColor: "#f5aabb"} :  { backgroundColor: "none"}}>
-            <Link to='/home' className="logo">
+            <Link to='/' className="logo">
             <img src='/logo.png' alt="logo" />
                 <h1>EXTRACKS</h1>
             </Link>
