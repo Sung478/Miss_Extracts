@@ -165,7 +165,7 @@ export default function Dashboard() {
                 <div className='dashboard-summary'>
                     <div>
                         <div id='dashboard-goal'>
-                            <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={user.doneWeekly || 0} goalAchieved={goalAchieved} />
+                            <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={goalAchieved || 0} goalAchieved={goalAchieved} />
                             <BMI weight={user.weight} height={user.height} />
                         </div>
                         {!modal && <BarChart dailyStats={dailyStats} loading={isLoading} />}
