@@ -42,7 +42,7 @@ export default function MyActivities() {
     const [activity, setActivity] = useState({})
 
     const getActvities = async () => {
-        setIsLoading(false)
+        setIsLoading(true)
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
         setIsLoading(false)
