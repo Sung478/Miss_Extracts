@@ -25,7 +25,7 @@ export default function Dashboard() {
             birth: '',
             height: 0,
             weight: 0,
-            goal: {
+            goals: {
                 weeklyGoal: 0,
                 weightGoal: 0,
                 inspiration: "",
