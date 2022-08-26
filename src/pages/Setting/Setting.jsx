@@ -69,7 +69,7 @@ export default function Setting({ checkStatus }) {
     console.log(response)
     // setIsSignin(false)
     console.log('Signed out')
-    navigate('/')
+    navigate('/home')
     alert('Signed out')
   }
 
