@@ -130,6 +130,7 @@ export default function Dashboard() {
 
     // =============
     useEffect(() => {
+        getUser()
         // login()
         getActvities();
         // getRecentAct();
