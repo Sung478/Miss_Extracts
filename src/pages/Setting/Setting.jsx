@@ -11,21 +11,7 @@ import Picture from '../../components/Pictures/Picture'
 export default function Setting({ checkStatus }) {
   const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState(
-    {
-      name: 'Sung',
-      username: 'username',
-      email: 'sung000@hotmail.com',
-      password: '000000000',
-      profilePic: 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007',
-      birth: '2Jan20',
-      height: 170,
-      weight: 55,
-      goal: {
-        weeklyGoal: 4,
-        weightGoal: 49,
-        inspiration: "ware kid's cloth",
-      }
-    }
+    {}
   )
 
   const [modal, setModal] = useState(false);
