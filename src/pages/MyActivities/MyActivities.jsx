@@ -54,6 +54,7 @@ export default function MyActivities() {
         const response = await axiosInstance.get('/user_id/activities')
         setActivities(response.data)
         console.log(response)
+        console.log(activities)
         setIsLoading(false)
     }
 
