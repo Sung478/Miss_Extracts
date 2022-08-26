@@ -38,9 +38,11 @@ export default function Setting({ checkStatus }) {
       ...prev, picture: selectedPic
     }))
     console.log(user)
-    // await axiosInstance.put('/user_id',  user)
-    // alert('Picture Updated')
+    await axiosInstance.put('/user_id',  user)
+    alert('Picture Updated')
   }
+
+
 
 
 
