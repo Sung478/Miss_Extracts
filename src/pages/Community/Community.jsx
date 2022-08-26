@@ -31,28 +31,6 @@ export default function Community() {
     const [modalU,setModalU] = useState(false);
     const [activity, setActivity] = useState({})
     
-    const toggleModal = () =>{
-      setModal(!modal);
-    }
-
-    if(modal) {
-        document.body.classList.add('active-modal')
-      } else {
-        document.body.classList.remove('active-modal')
-      }
-
-      if(modalU) {
-        document.body.classList.add('active-modal')
-    } else {
-        document.body.classList.remove('active-modal')
-    }
-
-        // const [activity, setActivity] = useState({})
-    const toggleModalU = () =>{
-            // console.log(selectedCard)
-        setModalU(!modalU);
-        //   setActivity(selectedCard);
-    }
 
     const getUer = async() => {
         const response = await axiosInstance.get('/user_id')
@@ -60,6 +38,7 @@ export default function Community() {
     }
 
     const getCommunity = async() => {
+        setIsLoading(false)
         const response = await axiosInstance.get('/user_id/community')
         setCommunity(response.data)
         setIsLoading(false)
@@ -80,6 +59,31 @@ export default function Community() {
         getUer()
         getCommunity()
     }, [isUpdated])
+
+
+    const toggleModal = () =>{
+        setModal(!modal);
+      }
+  
+      if(modal) {
+          document.body.classList.add('active-modal')
+        } else {
+          document.body.classList.remove('active-modal')
+        }
+  
+        if(modalU) {
+          document.body.classList.add('active-modal')
+      } else {
+          document.body.classList.remove('active-modal')
+      }
+  
+          // const [activity, setActivity] = useState({})
+      const toggleModalU = () =>{
+              // console.log(selectedCard)
+          setModalU(!modalU);
+          //   setActivity(selectedCard);
+      }
+  
     
 
     function onRemove(selectedCard) {
