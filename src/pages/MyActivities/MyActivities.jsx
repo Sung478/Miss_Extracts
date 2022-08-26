@@ -40,6 +40,18 @@ export default function MyActivities() {
     const [modal,setModal] = useState(false);
     const [modalU,setModalU] = useState(false);
     const [activity, setActivity] = useState({})
+
+    const getActvities = async () => {
+        setIsLoading(false)
+        const response = await axiosInstance.get('/user_id')
+        setUser(response.data)
+        setIsLoading(false)
+    }
+
+    useEffect( () => {
+        // login()
+        getActvities();
+    }, [isUpdated]);
     
     const toggleModal = () =>{
       setModal(!modal);
@@ -73,23 +85,13 @@ export default function MyActivities() {
     //     ).catch(() => console.log('login failed'))
     // }
 
-    const getActvities = async () => {
-        setIsLoading(false)
-        const response = await axiosInstance.get('/user_id')
-        setUser(response.data)
-        setIsLoading(false)
-    }
+
 
     const deleteActivity = async (activityId) => {
         console.log(activityId)
         await axiosInstance.delete(`/user_id/activities/${activityId}`)
         console.log("activity deleted")
     }
-
-    useEffect( () => {
-        // login()
-        getActvities();
-    }, [isUpdated]);
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
