@@ -34,7 +34,7 @@ export default function Setting({ checkStatus }) {
 
   const updatePicture = async (selectedPic) => {
     console.log(selectedPic)
-    setUser((prev) => ({
+    await setUser((prev) => ({
       ...prev, picture: selectedPic
     }))
     console.log(user)
