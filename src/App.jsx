@@ -26,11 +26,12 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/registration' element={<Registration/>}  />
           <Route path='/signin' element={<SignIn_test />}  />
-          <Route path='/user' element={<IsSignin />} />
+          <Route element={<IsSignin />} />
             <Route path='dashboard' element={<Dashboard/>} />
             <Route path='activities' element={<MyActivities/>}  />
             <Route path='community' element={<Community/>}  />
             <Route path='setting' element={<Setting />} />
+          <Route />
             {/* <Route path='setgoal' element={<SetGoal/>}  /> */}
           <Route path="*" element={<NotFound/>} />
         </Routes>
