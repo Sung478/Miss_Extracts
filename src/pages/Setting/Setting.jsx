@@ -42,6 +42,7 @@ export default function Setting({ checkStatus }) {
 
   useEffect(() => {
     axiosInstance.put('/user_id', user)
+    alert('whattttt')
   }, [user])
 
 
