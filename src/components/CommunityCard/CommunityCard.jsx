@@ -7,9 +7,10 @@ export default function CommunityCard({card, userId, onRemove, reload, toggleMod
     const [modal,setModal] = useState(false);
     const [ myActivity, setMyactivity] = useState(false)
 
+  
+
   const getActivity = () => {
     setActivity(card.activities)
-    reload()
     toggleModalU()
 }
 
@@ -27,7 +28,7 @@ export default function CommunityCard({card, userId, onRemove, reload, toggleMod
     document.body.classList.remove('active-modal')
 }
   
-
+reload()
   return (
     <div className='communityCard'>
             <div className='card-head'>
