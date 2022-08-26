@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "./Box/Box";
-import picProile from "./Group 30.png";
 import "./Profile.css"
 import Button from "./Button/Button";
 

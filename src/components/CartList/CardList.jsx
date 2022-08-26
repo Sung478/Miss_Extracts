@@ -3,9 +3,6 @@ import Card from '../Card/Card';
 
 export default function CardList({cards, onRemove, reload, inDashboard, toggleModalU, setActivity}) {
 
-  // const end = cards.length-1
-  // const cardsRe = cards.slice(3, end)
-
   return (
     <div className='cardlist' style={inDashboard? { overflowY: "scroll" } : { overflowY: "hidden" }}>
         {

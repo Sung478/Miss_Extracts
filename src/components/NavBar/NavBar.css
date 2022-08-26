@@ -11,17 +11,11 @@ html, body {
 }
 
 .navbar {
-    /* max-width: 1280px;
-    margin: 0 auto;
-    position: fixed;
-    top: 0;
-    width: 100%; */
     height: 72px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    /* background-color: #f5aabb; */
     background-color: none;
     
 }

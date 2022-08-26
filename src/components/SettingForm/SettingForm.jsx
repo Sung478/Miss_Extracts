@@ -4,36 +4,11 @@ import { appendErrors, useForm } from 'react-hook-form';
 import axiosInstance from '../../config/axios';
 import './SettingForm.css';
 
-// const picture = 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007'
-
 
 export function SettingForm({user, isLoading, signOut, toggleModal}) {
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     // const [picUpdate, setPicUpdate] = useState(false);
     
-
-
-    // user prototype
-    // const [user, setUser] = useState(
-    //     {
-    //         name: 'Sung',
-    //         username: 'username',
-    //         email: 'sung000@hotmail.com',
-    //         password: '000000000',
-    //         profilePic: 'https://www.figma.com/file/czpxRx46XfXd4IFIKll6kx/Untitled?node-id=68%3A2007',
-    //         birth: '2Jan20',
-    //         height: 170,
-    //         weight: 55,
-    //         goal: {
-    //             weeklyGoal: 4,
-    //             weightGoal: 49,
-    //             inspiration: "ware kid's cloth",
-    //         }
-    //     }
-    // )
-
-
-
     // change profile picture, save change immediately without clicking save
     // const changeProfilePic = (newSrc) => {
     //     setUser((prev)=> {
@@ -42,7 +17,6 @@ export function SettingForm({user, isLoading, signOut, toggleModal}) {
     //         return prevInfo
     //     })
     // } 
-
 
     // backend connection
 

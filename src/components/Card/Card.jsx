@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import UpdateActivityForm from '../UpdateActivityForm/UpdateActivityForm';
+import React from 'react'
 import './Card.css'
 
 
-export default function Card({card, onRemove, reload, setActivity, toggleModalU /*modal, toggleModal*/}) {
+export default function Card({card, onRemove, reload, setActivity, toggleModalU}) {
     
 
     const removeCard = () => {

@@ -6,7 +6,6 @@
 
 .profile img {
     padding: 20px;
-    /* padding-top: 150px; */
 }
 
 #profilePic {
@@ -21,7 +20,6 @@
 .profileDetails {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
 }
 
 .userName {

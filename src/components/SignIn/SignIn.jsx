@@ -5,10 +5,6 @@ import './SignIn.css'
 const SignIn = ({onSubmit}) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     
-    // const onSubmit = data => {
-    //     console.log(data);
-    //     reset();
-    // }
     return (
         <div className="sign-container">
             <h1>Sign In</h1>

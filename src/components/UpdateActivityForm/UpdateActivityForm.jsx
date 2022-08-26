@@ -3,32 +3,10 @@ import {appendErrors, useForm} from 'react-hook-form';
 import './UpdateActivityForm.css'
 
 import axiosInstance from '../../config/axios';
-import { useNavigate } from 'react-router-dom';
 
 export const UpdateActivityForm = ({activity, reload , toggleModal}) => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
-    const navigate = useNavigate()
   
-//     const login = async () => {
-//       await axiosInstance.post('/auth/signin', {
-//           username: "tester002",
-//           password: "12345678",
-//       }).then(() => console.log("login success")
-//       ).catch(() => console.log('login failed'))
-//   }
-  
-//   const getActvities = async () => {
-//     setIsLoading(true)
-//     const response = await axiosInstance.get('/user_id')
-//     setUser(response.data)
-//     setIsLoading(false)
-//   }
-  
-//    useEffect(()=>{
-//     login();
-//     // getActvities();
-//    }, [])
-
     console.log(activity)
   
     const onSubmit = async (data) => {
@@ -37,7 +15,7 @@ export const UpdateActivityForm = ({activity, reload , toggleModal}) => {
       toggleModal()
       reload()
     }
-  // ===========
+  
 
   
     return (

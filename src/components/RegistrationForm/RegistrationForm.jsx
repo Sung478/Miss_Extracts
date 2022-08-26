@@ -24,9 +24,7 @@ export default function RegistrationForm() {
       reset();
       navigate('/signin');
     } catch (e) { console.log(e) }
-    // เปลี่ยน navigate ไป signin ตอน page signin เสร็จ
   }
-  // goals: { weeklyGoal: 0, weightGoal: 0, inspiration: "not set"}
 
   return (
     <div className='regis-form'>
