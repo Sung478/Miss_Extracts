@@ -52,12 +52,12 @@ export default function MyActivities() {
     const getActvities = async () => {
         setIsLoading(true)
         const response = await axiosInstance.get('/user_id/activities')
-        setUser(response.data)
+        setActivities(response.data)
         setIsLoading(false)
     }
 
     useEffect( () => {
-        // login()
+        getUser()
         getActvities();
     }, [isUpdated]);
     
