@@ -15,7 +15,7 @@ export default function SignIn_test() {
     const response = await axiosInstance.post('auth/signin', {...data})
     console.log(response.data)
     alert('Welcom my friend! ' + response.data.username)
-    navigate('/dashboard')} catch (e) {
+    navigate('/user/dashboard')} catch (e) {
       console.log(e.response.data)
       alert(e.response.data)
     }
