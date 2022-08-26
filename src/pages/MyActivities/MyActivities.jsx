@@ -136,16 +136,17 @@ export default function MyActivities() {
         console.log("activity deleted")
     }
 
-    useEffect( () => {
-        // login()
-        getActvities();
-    }, [isUpdated]);
+    // useEffect( () => {
+    //     // login()
+        
+    // }, [isUpdated]);
 
     useEffect(() => {
+        getActvities();
         const endOffset = itemOffset + itemsPerPage;
         setCurrentItems(user.activities.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(user.activities.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage, user]);
+    }, [itemOffset, itemsPerPage, user, isUpdated]);
 
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % user.activities.length;
