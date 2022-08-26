@@ -12,7 +12,7 @@ import NewActivityForm from "../../components/NewActivityForm/NewActivityForm";
 export default function Community() {
     const [isUpdated, setIsUpdated] = useState(false);
     const [isLoading, setIsLoading] = useState(true)
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState({})
     const [community, setCommunity] = useState([])
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
