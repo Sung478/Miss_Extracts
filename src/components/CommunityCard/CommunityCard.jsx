@@ -9,6 +9,7 @@ export default function CommunityCard({card, userId, onRemove, reload, toggleMod
 
   const getActivity = () => {
     setActivity(card.activities)
+    reload()
     toggleModalU()
 }
 
