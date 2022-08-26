@@ -113,7 +113,14 @@ export default function Community() {
     } 
 
 
-    if(isLoading) return 
+    if(isLoading) return ( 
+        <div>
+            <NavBar isSignin={true} />
+            <h3>Loading...</h3>
+        </div>
+    )
+
+
     return (
         <div id='community'>
              <NavBar isSignin={true} />

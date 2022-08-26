@@ -148,7 +148,13 @@ export default function Dashboard() {
         } else { alert('activity not delete') }
     }
 
-    if (isLoading) return
+    if (isLoading) return ( 
+        <div>
+            <NavBar isSignin={true} />
+            <h3>Loading...</h3>
+        </div>
+    )
+    
     return (
         <div id='dashboard'>
             <NavBar isSignin={true} />

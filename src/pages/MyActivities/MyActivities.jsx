@@ -121,7 +121,15 @@ export default function MyActivities() {
         setIsUpdated(!isUpdated)
     }
 
-    if(isLoading) return 
+    if(isLoading) return ( 
+        <div>
+            <NavBar isSignin={true} />
+            <h3>Loading...</h3>
+        </div>
+    )
+
+
+
     return (
         <div id='myActivities'>
             <NavBar isSignin={true}/>
