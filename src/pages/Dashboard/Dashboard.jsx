@@ -42,6 +42,7 @@ export default function Dashboard() {
     const [modal,setModal] = useState(false);
     const [modalU,setModalU] = useState(false);
     const [activity, setActivity] = useState({})
+    const [activities, setActivities] = useState([])
     
     const toggleModal = () =>{
       setModal(!modal);
@@ -74,14 +75,11 @@ export default function Dashboard() {
     //     ).catch(() => console.log('login failed'))
     // }
 
-    const getActvities = async () => {
+    const getUser = async () => {
         const response = await axiosInstance.get('/user_id')
-        setUser(response.data)
+        setUser(() => response.data)
         console.log(user)
-        // const recent = await axiosInstance.get('/user_id/activities/recent-activites')
-        // setRecentAct(recent.data)
         setIsLoading(false)
-        // console.log(recent)
     }
 
     // const getRecentAct = async () => {
@@ -97,13 +95,21 @@ export default function Dashboard() {
     }
     // ============
 
-    const recentCards = user.activities.slice(0, 2);
+    const getActvities = async () => {
+        setIsLoading(true)
+        const response = await axiosInstance.get('/user_id/activities')
+        const data = response.data
+        setActivities(() => data)
+        setIsLoading(false)
+    }
+
+    const recentCards = activities.slice(0, 2);
 
     const getDailyStats = async () => {
         setIsLoading(true);
         const response = await axiosInstance.get("user_id/activities/daily-stats");
         // console.log(response.data);
-        setDailyStats(response.data);
+        setDailyStats(() => response.data);
         setIsLoading(false);
     };
 

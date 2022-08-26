@@ -40,7 +40,7 @@ export default function Community() {
     const getCommunity = async() => {
         setIsLoading(true)
         const response = await axiosInstance.get('/user_id/community')
-        setCommunity(response.data)
+        setCommunity(() => response.data)
         setIsLoading(false)
     }
 
