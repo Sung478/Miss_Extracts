@@ -6,10 +6,10 @@ export default function NavBar({isSignin, isHome, atSignup, atSignin}) {
     let navElements = [];
     if (isSignin) {
         navElements = [
-            <Link to='/user/dashboard'>Dashboard</Link>,
-            <Link to='/user/activities'>My Activity</Link>,
-            <Link to='/user/community'>Community</Link>,
-            <Link to='/user/setting'>Setting</Link>
+            <Link to='/dashboard'>Dashboard</Link>,
+            <Link to='/activities'>My Activity</Link>,
+            <Link to='/community'>Community</Link>,
+            <Link to='/setting'>Setting</Link>
         ]
     } else {
         if(isHome || atSignup){
@@ -30,7 +30,7 @@ export default function NavBar({isSignin, isHome, atSignup, atSignin}) {
 
     return (
         <div className="navbar" style={isHome? { backgroundColor: "#f5aabb"} :  { backgroundColor: "none"}}>
-            <Link to='/' className="logo">
+            <Link to='/home' className="logo">
             <img src='/logo.png' alt="logo" />
                 <h1>EXTRACKS</h1>
             </Link>
