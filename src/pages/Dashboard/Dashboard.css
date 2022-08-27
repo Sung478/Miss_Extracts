@@ -17,7 +17,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* min-height: 400px; */
 }
 
 #dashboard-goal {
@@ -27,8 +26,6 @@
 #dashboard-cards {
     max-width: 1000px;
     max-height: 350px;
-    /* border: 1px red solid; */
-    /* overflow: scroll; */
     margin-top: 20px;
     display: flex;
     flex-direction: column;

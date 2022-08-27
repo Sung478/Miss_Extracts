@@ -1,18 +1,14 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import NavBar from './components/NavBar/NavBar'
-
 import Home from './pages/Home/Home'
 import Dashboard from './pages/Dashboard/Dashboard'
 import MyActivities from './pages/MyActivities/MyActivities'
 import Community from './pages/Community/Community'
 import Setting from './pages/Setting/Setting'
-import SetGoal from './pages/SetGoal/SetGoal'
 import Registration from './pages/Regitration/Registration'
 import SignIn_test from './pages/SignIn_test/SignIn_test'
 import IsSignin from './pages/IsSignin/IsSignin'
-import { useState } from 'react'
 import NotFound from './pages/Notfound'
 
 

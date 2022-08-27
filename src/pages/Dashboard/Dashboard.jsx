@@ -59,21 +59,10 @@ export default function Dashboard() {
     } else {
         document.body.classList.remove('active-modal')
     }
-
-        // const [activity, setActivity] = useState({})
+    
     const toggleModalU = () =>{
-            // console.log(selectedCard)
         setModalU(!modalU);
-        //   setActivity(selectedCard);
     }
-
-    // const login = async () => {
-    //     await axiosInstance.post('/auth/signin', {
-    //         username: "tester002",
-    //         password: "12345678",
-    //     }).then(() => console.log("login success")
-    //     ).catch(() => console.log('login failed'))
-    // }
 
     const getUser = async () => {
         const response = await axiosInstance.get('/user_id')
@@ -82,11 +71,6 @@ export default function Dashboard() {
         setIsLoading(false)
     }
 
-    // const getRecentAct = async () => {
-    //     const recent = await axiosInstance.get('/user_id/activities/recent-activites')
-    //     setRecentAct(recent.data)
-    //     setIsLoading(false)
-    // }
 
     const deleteActivity = async (activityId) => {
         console.log(activityId)

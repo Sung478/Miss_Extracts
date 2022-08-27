@@ -78,23 +78,10 @@ export default function MyActivities() {
         document.body.classList.remove('active-modal')
     }
 
-        // const [activity, setActivity] = useState({})
+
     const toggleModalU = () =>{
-            // console.log(selectedCard)
         setModalU(!modalU);
-        //   setActivity(selectedCard);
     }
-
-    // backend connection
-    // const login = async () => {
-    //     await axiosInstance.post('/auth/signin', {
-    //         username: "tester002",
-    //         password: "12345678",
-    //     }).then(() => console.log("login success")
-    //     ).catch(() => console.log('login failed'))
-    // }
-
-
 
     const deleteActivity = async (activityId) => {
         console.log(activityId)
@@ -118,7 +105,6 @@ export default function MyActivities() {
             const newCards = activities.filter( activity => {
                 return activity.activityId != selectedCard.activityId
             })
-            //setUser( prev => [ ... prev].map( user => user.userId = 1 ? { ...user, activities: newCards} : user ))
             const activityId = selectedCard.activityId;
             deleteActivity(activityId);
             setActivities(newCards);

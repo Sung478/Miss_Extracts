@@ -1,7 +1,3 @@
-/* * {
-    border: #EC255A 1px solid;
-} */
-
 .registration {
     display: flex;
     height: 100vh;
@@ -20,19 +16,6 @@
     display: flex;
     justify-content: center;
 }
-
-
-/* .sign-container button {
-    background-color: #EC255A;
-    height: 3rem;
-    margin-top: 2rem;
-    cursor: pointer;
-    color: antiquewhite;
-    width: 200px;
-    border: 0;
-    border-radius: 20px;
-    font-size: 1rem;
-} */
 
 
 #register-button {
