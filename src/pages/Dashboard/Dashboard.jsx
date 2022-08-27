@@ -59,7 +59,7 @@ export default function Dashboard() {
     } else {
         document.body.classList.remove('active-modal')
     }
-    
+
     const toggleModalU = () =>{
         setModalU(!modalU);
     }
@@ -115,10 +115,9 @@ export default function Dashboard() {
     // =============
     useEffect(() => {
         getUser()
-        // login()
         getActvities();
-        // getRecentAct();
         getDailyStats();
+        alert('got dashboard')
     }, [isUpdated]);
 
     const reload = () => {
