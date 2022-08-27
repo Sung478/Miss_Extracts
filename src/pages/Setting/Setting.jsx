@@ -43,7 +43,7 @@ export default function Setting({ checkStatus }) {
   useEffect(() => {
     axiosInstance.put('/user_id', user)
     alert('whattttt')
-  }, [user])
+  }, [user.picture])
 
   const signout = async () => {
     const response = await axiosInstance.post('/auth/signout')
