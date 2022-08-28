@@ -15,29 +15,33 @@ export default function Home() {
 
   const checkStatus = () => {
     axiosInstance.get('/user_id')
-    .then(response => {
+      .then(response => {
         console.clear()
         console.log(`account: @${response.data.username}`)
-    }).then(() => setIsSignin(true)).then(() => setIsLoading(false) )
-    .catch(() => {
+      }).then(() => setIsSignin(true)).then(() => setIsLoading(false))
+      .catch(() => {
         console.log('Not sign in')
         setIsLoading(false)
-    })
+      })
   }
 
   useEffect(() => {
     checkStatus()
-  },[])
+  }, [])
 
-  if(isLoading) return <h3>Loading...</h3>
+  if (isLoading) return
+  <div style={{ backgroundImage: "linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%)", height: "100vh" }} >
+    <NavBar isSignin={true} />
+    <h3>Loading...</h3>
+  </div>
 
   return (
     <div className='home'>
-       <NavBar isHome={home} isSignin={isSignin} />
-        <Banner/>
-        <Tips/>
-        <Info/>
-        <Footer/>
+      <NavBar isHome={home} isSignin={isSignin} />
+      <Banner />
+      <Tips />
+      <Info />
+      <Footer />
     </div>
   )
 }
