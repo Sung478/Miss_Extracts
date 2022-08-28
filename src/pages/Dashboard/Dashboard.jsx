@@ -65,11 +65,11 @@ export default function Dashboard() {
     }
 
     const getUser = async () => {
-        // setIsLoading(true)
+        setIsLoading(true)
         const response = await axiosInstance.get('/user_id')
         setUser(() => response.data)
         console.log(user)
-        // setIsLoading(false)
+        setIsLoading(false)
     }
 
 
@@ -83,11 +83,11 @@ export default function Dashboard() {
     // ============
 
     const getActvities = async () => {
-        setIsLoading(true)
+        // setIsLoading(true)
         const response = await axiosInstance.get('/user_id/activities')
         const data = response.data
         setActivities(() => data)
-        setIsLoading(false)
+        // setIsLoading(false)
     }
 
     const recentCards = activities.slice(0, 2);
@@ -118,8 +118,8 @@ export default function Dashboard() {
     // =============
     useEffect(() => {
         getDailyStats();
-        getUser()
         getActvities();
+        getUser()
     }, []);
 
     useEffect(() => {
@@ -128,7 +128,6 @@ export default function Dashboard() {
 
     useEffect(() => {
         getDailyStats();
-        getUser()
         getActvities();
     }, [isUpdated]);
 
