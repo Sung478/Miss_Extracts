@@ -80,6 +80,7 @@ const BarChart = ({ dailyStats, reload }) => {
   }, [])
 
   useEffect(() => {
+    getWeeklyStats()
     setTrackingValue()
     setTrackingName()
   }, [dailyStats])
