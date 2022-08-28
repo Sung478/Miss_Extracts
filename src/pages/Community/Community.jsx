@@ -52,6 +52,11 @@ export default function Community() {
         getCommunity()
     }, [isUpdated])
 
+    useEffect(() => {
+        getUer()
+        getCommunity()
+    }, [])
+
 
     const toggleModal = () =>{
         setModal(!modal);

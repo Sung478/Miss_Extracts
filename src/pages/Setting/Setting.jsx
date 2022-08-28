@@ -42,7 +42,6 @@ export default function Setting({ checkStatus }) {
 
   useEffect(() => {
     axiosInstance.put('/user_id', user)
-    alert('whattttt')
   }, [user])
 
   const signout = async () => {
@@ -62,7 +61,6 @@ export default function Setting({ checkStatus }) {
 
   useEffect(() => {
     getUser();
-    alert('got it')
   }, [])
 
   return (
