@@ -65,18 +65,20 @@ export default function Dashboard() {
     }
 
     const getUser = async () => {
-        setIsLoading(true)
+        // setIsLoading(true)
         const response = await axiosInstance.get('/user_id')
         setUser(() => response.data)
         console.log(user)
-        setIsLoading(false)
+        // setIsLoading(false)
     }
 
 
     const deleteActivity = async (activityId) => {
+        setIsLoading(true)
         console.log(activityId)
         await axiosInstance.delete(`/user_id/activities/${activityId}`)
         console.log("activity deleted")
+        setIsLoading(false)
     }
     // ============
 
@@ -91,11 +93,11 @@ export default function Dashboard() {
     const recentCards = activities.slice(0, 2);
 
     const getDailyStats = async () => {
-        setIsLoading(true);
+        // setIsLoading(true);
         const response = await axiosInstance.get("user_id/activities/daily-stats");
         console.log(response.data);
         setDailyStats(() => response.data);
-        setIsLoading(false);
+        // setIsLoading(false);
     };
 
 
