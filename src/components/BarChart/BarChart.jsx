@@ -2,8 +2,7 @@ import Chart from "react-apexcharts";
 import React, { useState, useEffect } from "react";
 import './BarChart.css'
 
-const BarChart = ({ dailyStats, loading }) => {
-  if (loading) return <h2>Loading..</h2>
+const BarChart = ({ dailyStats, reload }) => {
 
   const [trackingName, setTrackingName] = useState([]);
   const [trackingValue, setTrackingValue] = useState([]);
