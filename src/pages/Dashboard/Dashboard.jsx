@@ -168,7 +168,7 @@ export default function Dashboard() {
                             <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={goalAchieved || 0} goalAchieved={goalAchieved} />
                             <BMI weight={user.weight} height={user.height} />
                         </div>
-                        <BarChart dailyStats={dailyStats} reload={reload} />
+                        <BarChart dailyStats={dailyStats} reload={reload} isLoading={isLoading} />
                     </div>
                     <div id='dashboard-cards'>
                         <div id="dashboard-cards-heading">
