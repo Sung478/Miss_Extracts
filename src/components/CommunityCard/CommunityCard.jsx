@@ -29,6 +29,7 @@ export default function CommunityCard({ card, userId, onRemove, reload, toggleMo
       <div className="card-body">
         <img src='/profile.png' alt='profile' />
         <div className="card-detail">
+          <p>type: {card.username}</p>
           <p>type: {card.activities.activityType}</p>
           <p>activity: {card.activities.activity}</p>
           <p>duration: {card.activities.duration}</p>
