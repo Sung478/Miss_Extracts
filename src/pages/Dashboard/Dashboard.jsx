@@ -39,28 +39,28 @@ export default function Dashboard() {
 
     const [isUpdated, setIsUpdated] = useState(false);
     const [dailyStats, setDailyStats] = useState([]);
-    const [modal,setModal] = useState(false);
-    const [modalU,setModalU] = useState(false);
+    const [modal, setModal] = useState(false);
+    const [modalU, setModalU] = useState(false);
     const [activity, setActivity] = useState({})
     const [activities, setActivities] = useState([])
-    
-    const toggleModal = () =>{
-      setModal(!modal);
+
+    const toggleModal = () => {
+        setModal(!modal);
     }
 
-    if(modal) {
-        document.body.classList.add('active-modal')
-      } else {
-        document.body.classList.remove('active-modal')
-      }
-
-      if(modalU) {
+    if (modal) {
         document.body.classList.add('active-modal')
     } else {
         document.body.classList.remove('active-modal')
     }
 
-    const toggleModalU = () =>{
+    if (modalU) {
+        document.body.classList.add('active-modal')
+    } else {
+        document.body.classList.remove('active-modal')
+    }
+
+    const toggleModalU = () => {
         setModalU(!modalU);
     }
 
@@ -115,9 +115,9 @@ export default function Dashboard() {
 
     // =============
     useEffect(() => {
+        getDailyStats();
         getUser()
         getActvities();
-        getDailyStats();
         alert('got dashboard')
     }, []);
 
@@ -126,9 +126,9 @@ export default function Dashboard() {
     }, [isLoading]);
 
     useEffect(() => {
+        getDailyStats();
         getUser()
         getActvities();
-        getDailyStats();
         alert('got dashboard2')
     }, [isUpdated]);
 
@@ -150,8 +150,8 @@ export default function Dashboard() {
         } else { alert('activity not delete') }
     }
 
-    if (isLoading) return ( 
-        <div style={{backgroundImage: "linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%)", height: "100vh"}} >
+    if (isLoading) return (
+        <div style={{ backgroundImage: "linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%)", height: "100vh" }} >
             <NavBar isSignin={true} />
             <h3>Loading...</h3>
         </div>
@@ -162,21 +162,14 @@ export default function Dashboard() {
             <NavBar isSignin={true} />
             <div>
                 <div className="dashboard-profile"><Profile user={user} reload={reload} toggleModal={toggleModal} /></div>
-                    {modal && (
-                        <div className="modal">
-                            <div onClick={toggleModal} className="overlay"></div>
-                            <div className="modal-content">
-                                <NewActivityForm reload={reload} toggleModal={toggleModal} />
-                            </div>
-                        </div>
-                    )}
+
                 <div className='dashboard-summary'>
                     <div>
                         <div id='dashboard-goal'>
                             <Goal inspiration={user.goals.inspiration || '-'} weeklyGoal={user.goals.weeklyGoal || 0} doneWeekly={goalAchieved || 0} goalAchieved={goalAchieved} />
                             <BMI weight={user.weight} height={user.height} />
                         </div>
-                        {!modal && <BarChart dailyStats={dailyStats} loading={isLoading} />}
+                        <BarChart dailyStats={dailyStats} loading={isLoading} />
                     </div>
                     <div id='dashboard-cards'>
                         <div id="dashboard-cards-heading">
@@ -184,14 +177,22 @@ export default function Dashboard() {
                             <h3>Recent Activities</h3>
                         </div>
                         <CardList cards={recentCards} onRemove={onRemove} reload={reload} inDashboard={true} setActivity={setActivity} toggleModalU={toggleModalU} />
-                            {modalU && (
+                        {modal && (
+                            <div className="modal">
+                                <div onClick={toggleModal} className="overlay"></div>
+                                <div className="modal-content">
+                                    <NewActivityForm reload={reload} toggleModal={toggleModal} />
+                                </div>
+                            </div>
+                        )}
+                        {modalU && (
                             <div className="modal">
                                 <div onClick={toggleModalU} className="overlay"></div>
                                 <div className="modal-content">
-                                <UpdateActivityForm toggleModal={toggleModalU} reload={reload} activity={activity}/>
+                                    <UpdateActivityForm toggleModal={toggleModalU} reload={reload} activity={activity} />
                                 </div>
                             </div>
-                             )}
+                        )}
                         <Link to='/activities'><a id="seemore">see more ...</a></Link>
                     </div>
                 </div>
