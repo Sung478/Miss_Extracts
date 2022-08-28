@@ -65,6 +65,7 @@ export default function Dashboard() {
     }
 
     const getUser = async () => {
+        setIsLoading(true)
         const response = await axiosInstance.get('/user_id')
         setUser(() => response.data)
         console.log(user)
@@ -119,6 +120,10 @@ export default function Dashboard() {
         getDailyStats();
         alert('got dashboard')
     }, []);
+
+    useEffect(() => {
+        reload()
+    }, [isLoading]);
 
     useEffect(() => {
         getUser()
