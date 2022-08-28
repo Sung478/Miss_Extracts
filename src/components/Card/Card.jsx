@@ -29,7 +29,7 @@ export default function Card({card, onRemove, reload, setActivity, toggleModalU}
             <div className="card-body">
                 <div className="card-detail">
                     <p>type: {card.activityType}</p>
-                    <p>activity: {card.activityName}</p>
+                    <p>activity: {card.activity}</p>
                     <p>duration: {card.duration}</p>
                 </div>
                 <div className="card-text">
