@@ -118,7 +118,7 @@ export default function Dashboard() {
         getActvities();
         getDailyStats();
         alert('got dashboard')
-    }, [isUpdated]);
+    }, []);
 
     const reload = () => {
         setIsUpdated(!isUpdated)
