@@ -80,6 +80,10 @@ const BarChart = ({ dailyStats, loading }) => {
     getWeeklyStats()
   }, [])
 
+  useEffect(() => {
+    reload()
+  }, [trackingName, trackingValue])
+
   //  if (loading) return <h2>Loading..</h2>
   return (
     <React.Fragment>
