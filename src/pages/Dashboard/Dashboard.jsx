@@ -120,6 +120,13 @@ export default function Dashboard() {
         alert('got dashboard')
     }, []);
 
+    useEffect(() => {
+        getUser()
+        getActvities();
+        getDailyStats();
+        alert('got dashboard2')
+    }, [isUpdated]);
+
     const reload = () => {
         setIsUpdated(!isUpdated)
     }
