@@ -30,7 +30,7 @@ export default function CommunityCard({ card, userId, onRemove, reload, toggleMo
         <img src='/profile.png' alt='profile' />
         <div className="card-detail">
           <p>type: {card.activities.activityType}</p>
-          <p>activity: {card.activities.activityName}</p>
+          <p>activity: {card.activities.activity}</p>
           <p>duration: {card.activities.duration}</p>
         </div>
         <div className="card-text">
