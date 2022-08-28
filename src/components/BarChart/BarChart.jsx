@@ -81,8 +81,8 @@ const BarChart = ({ dailyStats, reload, isLoading }) => {
 
   useEffect(() => {
     getWeeklyStats()
-    setTrackingValue(Object.values(weeklyStats))
-    setTrackingName(getWeekDay(sevenDaysAgo))
+    // setTrackingValue(Object.values(weeklyStats))
+    // setTrackingName(getWeekDay(sevenDaysAgo))
   }, [isLoading])
 
   //  if (loading) return <h2>Loading..</h2>
