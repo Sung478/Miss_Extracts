@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import './BarChart.css'
 
 const BarChart = ({ dailyStats, reload, isLoading }) => {
-  if(isLoading) <h3>Loading...</h3>
   const [trackingName, setTrackingName] = useState([]);
   const [trackingValue, setTrackingValue] = useState([]);
 
