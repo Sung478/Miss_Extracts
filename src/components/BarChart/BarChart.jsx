@@ -80,8 +80,9 @@ const BarChart = ({ dailyStats, reload }) => {
   }, [])
 
   useEffect(() => {
-    reload()
-  }, [trackingName, trackingValue])
+    setTrackingValue()
+    setTrackingName()
+  }, [dailyStats])
 
   //  if (loading) return <h2>Loading..</h2>
   return (
