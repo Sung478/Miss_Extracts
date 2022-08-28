@@ -29,11 +29,12 @@ export default function Home() {
     checkStatus()
   }, [])
 
-  if (isLoading) return
-  <div style={{ backgroundImage: "linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%)", height: "100vh" }} >
-    <NavBar isSignin={true} />
-    <h3>Loading...</h3>
-  </div>
+  if (isLoading) return (
+    <div style={{ backgroundImage: "linear-gradient(0deg, rgba(56, 59, 129, 1) 0%, rgba(255, 203, 215, 1) 100%)", height: "100vh" }} >
+      <NavBar isSignin={false} />
+      <h3>Loading...</h3>
+    </div>
+  )
 
   return (
     <div className='home'>
