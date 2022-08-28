@@ -43,10 +43,8 @@ export default function MyActivities() {
     const [activities, setActivities] = useState([])
 
     const getUser = async () => {
-        setIsLoading(true)
         const response = await axiosInstance.get('/user_id')
         setUser(response.data)
-        setIsLoading(false)
     }
 
     const getActvities = async () => {
@@ -56,6 +54,11 @@ export default function MyActivities() {
         setActivities(() => data)
         setIsLoading(false)
     }
+
+    useEffect( () => {
+        getUser()
+        getActvities();
+    }, []);
 
     useEffect( () => {
         getUser()
