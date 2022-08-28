@@ -93,7 +93,7 @@ export default function Dashboard() {
     const getDailyStats = async () => {
         setIsLoading(true);
         const response = await axiosInstance.get("user_id/activities/daily-stats");
-        // console.log(response.data);
+        console.log(response.data);
         setDailyStats(() => response.data);
         setIsLoading(false);
     };
