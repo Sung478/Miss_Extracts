@@ -3,7 +3,7 @@ import './BMI.css'
 
 export default function BMI(props) {
 
-    let bmi = Math.floor((props.weight)/ ((props.height)/100)**2)
+    let bmi = ((props.weight)/ ((props.height)/100)**2).toFixed(2)
     console.log(props.weight)
     console.log(props.height)
     console.log(bmi)

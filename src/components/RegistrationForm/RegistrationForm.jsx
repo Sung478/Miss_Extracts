@@ -19,7 +19,7 @@ export default function RegistrationForm() {
 
   const onSummit = async (data) => {
     try {
-      await axiosInstance.post('/auth/signup', { ...data, picture: '/cyborg-id-1.png' })
+      await axiosInstance.post('/auth/signup', { ...data, picture: '/profile.png' })
       console.log(data);
       reset();
       navigate('/signin');
